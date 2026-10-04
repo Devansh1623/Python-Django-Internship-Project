@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-hero"><h1 class="page-hero-title">Profile</h1></div>
+<div class="card"><div class="card-body">{{ request.user.get_full_name }}<br>{{ request.user.email }}<br>{{ request.user.get_role_display }}</div></div>
+{% endblock %}

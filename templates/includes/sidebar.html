@@ -1,0 +1,62 @@
+<div class="sidebar" id="sidebar">
+  <!-- Logo / Brand -->
+  <div class="sidebar-logo">
+    <span class="logo-icon">🎯</span>
+    <span class="logo-text">CoachBook</span>
+    <span class="logo-sub">Coaching Booking Platform</span>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="sidebar-nav">
+    <div class="nav-section">
+      <div class="nav-section-label">Management</div>
+
+      <a class="nav-item {% if request.path == '/accounts/dashboard/' or request.path == '/dashboard/' %}active{% endif %}"
+         href="/accounts/dashboard/">
+        <span class="material-icons-round">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="nav-item {% if '/branches/' in request.path %}active{% endif %}"
+         href="/branches/">
+        <span class="material-icons-round">groups</span>
+        <span>Coaches</span>
+      </a>
+
+      <a class="nav-item {% if '/courses/' in request.path %}active{% endif %}"
+         href="/courses/">
+        <span class="material-icons-round">menu_book</span>
+        <span>Programs</span>
+      </a>
+
+      <a class="nav-item {% if '/batches/' in request.path %}active{% endif %}"
+         href="/batches/">
+        <span class="material-icons-round">event_available</span>
+        <span>Sessions</span>
+      </a>
+
+      <a class="nav-item {% if '/admissions/' in request.path %}active{% endif %}"
+         href="/admissions/">
+        <span class="material-icons-round">bookmark_added</span>
+        <span>Bookings</span>
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-label">Account</div>
+
+      <a class="nav-item {% if '/accounts/profile/' in request.path %}active{% endif %}"
+         href="/accounts/profile/">
+        <span class="material-icons-round">manage_accounts</span>
+        <span>Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Footer -->
+  <div class="sidebar-footer">
+    <a class="logout-btn" href="/accounts/logout/">
+      <span class="material-icons-round">logout</span> Sign Out
+    </a>
+  </div>
+</div>

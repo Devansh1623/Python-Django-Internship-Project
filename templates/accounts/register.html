@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block auth_content %}
+<div class="auth-wrapper">
+  <!-- Left Panel — Brand -->
+  <div class="auth-panel-left">
+    <div class="auth-left-content">
+      <div class="auth-left-tag">Heritage Dance Academy</div>
+      <h1 class="auth-left-title">Begin Your Dance<br>Journey Today</h1>
+      <p class="auth-left-sub">Join India's finest classical dance institution. Create your account to explore courses, enroll in batches, and begin your cultural journey.</p>
+      <div class="auth-badges">
+        <span class="auth-badge">📋 Easy Admissions</span>
+        <span class="auth-badge">🏫 Multi-Branch</span>
+        <span class="auth-badge">📅 Batch Scheduling</span>
+        <span class="auth-badge">🎓 Role-Based Access</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Panel — Form -->
+  <div class="auth-panel-right">
+    <div class="auth-form-box">
+      <h2 class="auth-form-heading">Create Account</h2>
+      <p class="auth-form-sub">Join our lineage of classical dance excellence.</p>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="post" id="register-form">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-group">
+            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.help_text %}
+              <div class="form-help">{{ field.help_text }}</div>
+            {% endif %}
+            {% if field.errors %}
+              {% for error in field.errors %}
+                <div class="form-error">{{ error }}</div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        {% endfor %}
+        <button class="btn btn-primary btn-block" type="submit" id="register-btn">
+          <span class="material-icons-round">how_to_reg</span> Create My Account
+        </button>
+      </form>
+
+      <div class="auth-footer-link">
+        Already a member? <a href="/accounts/login/">Sign In</a>
+      </div>
+      <div class="auth-footer-link" style="margin-top:0.5rem;">
+        <a href="/">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

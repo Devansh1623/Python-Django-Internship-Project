@@ -1,0 +1,27 @@
+<div class="topbar">
+  <div class="topbar-left">
+    <!-- Mobile sidebar toggle -->
+    <button class="topbar-btn sidebar-toggle" id="sidebar-toggle" aria-label="Open menu">
+      <span class="material-icons-round">menu</span>
+    </button>
+    <div>
+      <div class="topbar-breadcrumb">CoachBook</div>
+      <div class="topbar-title">{% block page_title %}Dashboard{% endblock %}</div>
+    </div>
+  </div>
+
+  <div class="topbar-right">
+    <button class="topbar-btn" aria-label="Notifications">
+      <span class="material-icons-round">notifications_none</span>
+    </button>
+    <div class="topbar-user">
+      <div class="topbar-avatar">
+        {{ request.user.first_name|default:request.user.username|slice:":1"|upper }}
+      </div>
+      <div class="topbar-user-info">
+        <div class="topbar-user-name">{{ request.user.get_full_name|default:request.user.username }}</div>
+        <div class="topbar-user-role">{{ request.user.get_role_display|default:"User" }}</div>
+      </div>
+    </div>
+  </div>
+</div>

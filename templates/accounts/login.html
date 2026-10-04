@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block auth_content %}
+<div class="auth-wrapper">
+  <!-- Left Panel — Brand -->
+  <div class="auth-panel-left">
+    <div class="auth-left-content">
+      <div class="auth-left-tag">Heritage Dance Academy</div>
+      <h1 class="auth-left-title">Preserving Grace<br>Through Generations</h1>
+      <p class="auth-left-sub">Access your studio dashboard — manage students, batches, admissions, and faculty from one elegant platform.</p>
+      <div class="auth-badges">
+        <span class="auth-badge">🪷 Bharatanatyam</span>
+        <span class="auth-badge">💃 Kathak</span>
+        <span class="auth-badge">🌊 Odissi</span>
+        <span class="auth-badge">✨ Mohiniyattam</span>
+        <span class="auth-badge">🔥 Contemporary</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Panel — Form -->
+  <div class="auth-panel-right">
+    <div class="auth-form-box">
+      <h2 class="auth-form-heading">Welcome Back</h2>
+      <p class="auth-form-sub">Enter your credentials to access your studio dashboard.</p>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="post" id="login-form">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-group">
+            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+              {% for error in field.errors %}
+                <div class="form-error">{{ error }}</div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        {% endfor %}
+        <div style="display:flex; justify-content:flex-end; margin-bottom:1.25rem;">
+          <a href="#" style="font-size:0.8125rem; color:var(--secondary); font-weight:600;">Forgot password?</a>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit" id="login-btn">
+          <span class="material-icons-round">login</span> Sign In to Dashboard
+        </button>
+      </form>
+
+      <div class="auth-divider"><span>or</span></div>
+
+      <a class="btn btn-secondary btn-block" href="/accounts/register/">
+        <span class="material-icons-round">how_to_reg</span> Create New Account
+      </a>
+
+      <div class="auth-footer-link" style="margin-top:2rem;">
+        <a href="/">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

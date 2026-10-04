@@ -1,0 +1,478 @@
+{% extends 'base.html' %}
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+<!-- ── Page Header ─────────────────────────────────────── -->
+<div class="page-hero" style="padding-bottom:0;">
+  <div class="page-hero-eyebrow">Coaching Overview</div>
+  <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+    <div>
+      <h1 class="page-hero-title" style="margin-bottom:0.25rem;">
+        Welcome back, {{ request.user.first_name|default:request.user.username }} 👋
+      </h1>
+      <p class="page-hero-sub" style="margin-bottom:0;">
+        <span class="badge badge-{{ request.user.role }}">{{ request.user.get_role_display|default:"User" }}</span>
+        &nbsp;Here's what's happening on CoachBook today.
+      </p>
+    </div>
+    <div class="btn-group">
+      <a href="/admissions/apply/" class="btn btn-primary btn-sm">
+        <span class="material-icons-round">bookmark_add</span> Book Session
+      </a>
+      <a href="/batches/create/" class="btn btn-secondary btn-sm">
+        <span class="material-icons-round">add_circle_outline</span> New Session
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── KPI Stat Cards ─────────────────────────────────── -->
+{% if total_branches is not None or total_courses is not None or total_batches is not None or total_students is not None %}
+<div class="grid grid-4" style="margin-bottom:1.75rem;">
+
+  {% if total_branches is not None %}
+  <div class="stat-card">
+    <div class="stat-icon primary">
+      <span class="material-icons-round">people</span>
+    </div>
+    <div class="stat-content">
+      <div class="stat-label">Active Coaches</div>
+      <div class="stat-value">{{ total_branches }}</div>
+      <div class="stat-sub">Verified experts</div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if total_courses is not None %}
+  <div class="stat-card">
+    <div class="stat-icon secondary">
+      <span class="material-icons-round">menu_book</span>
+    </div>
+    <div class="stat-content">
+      <div class="stat-label">Programs</div>
+      <div class="stat-value">{{ total_courses }}</div>
+      <div class="stat-sub">Across all specialties</div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if total_batches is not None %}
+  <div class="stat-card">
+    <div class="stat-icon success">
+      <span class="material-icons-round">event_available</span>
+    </div>
+    <div class="stat-content">
+      <div class="stat-label">Active Sessions</div>
+      <div class="stat-value">{{ total_batches }}</div>
+      <div class="stat-sub">Running this month</div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if total_students is not None %}
+  <div class="stat-card">
+    <div class="stat-icon gold">
+      <span class="material-icons-round">bookmark_added</span>
+    </div>
+    <div class="stat-content">
+      <div class="stat-label">Total Bookings</div>
+      <div class="stat-value">{{ total_students }}</div>
+      <div class="stat-sub">Enrolled clients</div>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+{% endif %}
+
+<!-- ── Main Content Grid ───────────────────────────────── -->
+<div style="display:grid; grid-template-columns:1fr 340px; gap:1.5rem; align-items:start;">
+
+  <!-- LEFT COLUMN -->
+  <div style="display:flex; flex-direction:column; gap:1.5rem;">
+
+    <!-- ── Coaches / Branches ──────────────────────────── -->
+    {% if all_branches %}
+    <div class="card">
+      <div class="card-header" style="display:flex; align-items:center; justify-content:space-between;">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="color:var(--primary); font-size:20px;">people</span>
+          <h3 style="margin:0;">Available Coaches</h3>
+        </div>
+        <a href="/branches/" class="btn btn-ghost btn-sm">
+          View All <span class="material-icons-round" style="font-size:16px;">arrow_forward</span>
+        </a>
+      </div>
+      <div style="padding:1.25rem;">
+        <div class="branch-map-grid">
+          {% for branch in all_branches %}
+          <div class="branch-map-card" style="background:var(--surface-container-low); border-radius:0.75rem; padding:1rem; display:flex; align-items:flex-start; gap:0.875rem; transition:all 0.2s ease;">
+            <!-- Coach avatar icon -->
+            <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--secondary)); display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 2px 8px rgba(13,124,102,0.28);">
+              <span class="material-icons-round" style="color:white; font-size:18px;">person</span>
+            </div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-family:var(--font-display); font-weight:700; font-size:0.9375rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ branch.name }}</div>
+              <div style="font-size:0.8125rem; color:var(--on-surface-variant); margin-top:2px;">
+                <span class="material-icons-round" style="font-size:13px; vertical-align:middle; color:var(--secondary);">location_on</span>
+                {{ branch.city }} · {{ branch.address|truncatechars:45 }}
+              </div>
+              <div style="display:flex; gap:0.75rem; margin-top:0.5rem; flex-wrap:wrap;">
+                <span style="font-size:0.75rem; font-family:var(--font-label); color:var(--on-surface-variant);">
+                  <strong style="color:var(--primary);">{{ branch.batches.count }}</strong> sessions
+                </span>
+                <span style="font-size:0.75rem; font-family:var(--font-label); color:var(--on-surface-variant);">
+                  {{ branch.phone }}
+                </span>
+              </div>
+            </div>
+            <span class="badge {% if branch.is_active %}badge-active{% else %}badge-rejected{% endif %}" style="flex-shrink:0;">
+              {% if branch.is_active %}Active{% else %}Inactive{% endif %}
+            </span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ── Active Sessions ─────────────────────────────── -->
+    {% if active_batches %}
+    <div class="card card-featured">
+      <div class="card-header" style="display:flex; align-items:center; justify-content:space-between;">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="color:var(--secondary); font-size:20px;">event_available</span>
+          <h3 style="margin:0;">Running Sessions</h3>
+        </div>
+        <a href="/batches/" class="btn btn-ghost btn-sm">
+          All Sessions <span class="material-icons-round" style="font-size:16px;">arrow_forward</span>
+        </a>
+      </div>
+      <div class="table-wrap" style="border-radius:0; box-shadow:none;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Session Name</th>
+              <th>Coach</th>
+              <th>Program</th>
+              <th>Timing</th>
+              <th>Seats</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for batch in active_batches %}
+            <tr>
+              <td>
+                <div style="font-weight:600; font-size:0.875rem;">{{ batch.name }}</div>
+                <div style="font-size:0.75rem; color:var(--on-surface-variant);">
+                  {% for day in batch.days %}
+                    <span style="text-transform:capitalize;">{{ day }}</span>{% if not forloop.last %}, {% endif %}
+                  {% endfor %}
+                </div>
+              </td>
+              <td>
+                <div style="font-size:0.8125rem;">{{ batch.branch.name|truncatechars:25 }}</div>
+                <div style="font-size:0.75rem; color:var(--on-surface-variant);">{{ batch.branch.city }}</div>
+              </td>
+              <td>
+                <span class="chip" style="font-size:0.7rem; padding:0.15rem 0.6rem;">{{ batch.course.get_dance_style_display }}</span>
+              </td>
+              <td style="font-family:var(--font-label); font-size:0.8125rem; white-space:nowrap;">
+                {{ batch.start_time|time:"H:i" }} – {{ batch.end_time|time:"H:i" }}
+              </td>
+              <td>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <div style="flex:1; height:6px; background:var(--surface-container-high); border-radius:999px; overflow:hidden; min-width:40px;">
+                    <div style="height:100%; width:{% if batch.max_students %}{{ batch.current_students|default:0 }}{% endif %}%; background:var(--primary); border-radius:999px; max-width:100%;"></div>
+                  </div>
+                  <span style="font-size:0.75rem; font-family:var(--font-label); white-space:nowrap;">
+                    {{ batch.seats_available }}/{{ batch.max_students }}
+                  </span>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ── Recent Bookings ────────────────────────────── -->
+    {% if recent_admissions %}
+    <div class="card">
+      <div class="card-header" style="display:flex; align-items:center; justify-content:space-between;">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="color:var(--primary); font-size:20px;">bookmark_added</span>
+          <h3 style="margin:0;">Recent Bookings</h3>
+        </div>
+        <a href="/admissions/" class="btn btn-ghost btn-sm">
+          View All <span class="material-icons-round" style="font-size:16px;">arrow_forward</span>
+        </a>
+      </div>
+      <div class="table-wrap" style="border-radius:0; box-shadow:none;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Session</th>
+              <th>Coach</th>
+              <th>Status</th>
+              <th>Payment</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for a in recent_admissions %}
+            <tr>
+              <td>
+                <div style="display:flex; align-items:center; gap:0.625rem;">
+                  <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--secondary)); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:0.8rem; flex-shrink:0;">
+                    {{ a.student.first_name|default:a.student.username|slice:":1"|upper }}
+                  </div>
+                  <div>
+                    <div style="font-weight:600; font-size:0.875rem;">{{ a.student.get_full_name|default:a.student.username }}</div>
+                    <div style="font-size:0.75rem; color:var(--on-surface-variant);">{{ a.created_at|date:"d M Y" }}</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:0.875rem;">{{ a.batch.name|truncatechars:20 }}</td>
+              <td style="font-size:0.8125rem; color:var(--on-surface-variant);">{{ a.batch.branch.city }}</td>
+              <td><span class="badge badge-{{ a.status }}">{{ a.get_status_display }}</span></td>
+              <td>
+                <span class="badge {% if a.payment_status == 'paid' %}badge-paid{% else %}badge-unpaid{% endif %}">
+                  {{ a.get_payment_status_display|default:a.payment_status }}
+                </span>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ── Client: My Bookings ───────────────────────── -->
+    {% if my_admissions %}
+    <div class="card card-featured">
+      <div class="card-header" style="display:flex; align-items:center; gap:0.5rem;">
+        <span class="material-icons-round" style="color:var(--primary); font-size:20px;">assignment</span>
+        <h3 style="margin:0;">My Bookings</h3>
+      </div>
+      <div style="padding:1rem;">
+        {% for a in my_admissions %}
+        <div style="background:var(--surface-container-low); border-radius:0.75rem; padding:1rem; margin-bottom:0.75rem; display:flex; align-items:center; gap:1rem;">
+          <div style="width:48px; height:48px; border-radius:0.75rem; background:linear-gradient(135deg,var(--primary),var(--secondary)); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <span class="material-icons-round" style="color:white;">video_call</span>
+          </div>
+          <div style="flex:1;">
+            <div style="font-family:var(--font-display); font-weight:700;">{{ a.batch.course.name }}</div>
+            <div style="font-size:0.8125rem; color:var(--on-surface-variant);">
+              {{ a.batch.name }} · {{ a.batch.branch.name }}
+            </div>
+            <div style="font-size:0.75rem; color:var(--on-surface-variant); margin-top:2px;">
+              {{ a.batch.start_time|time:"H:i" }} – {{ a.batch.end_time|time:"H:i" }}
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <span class="badge badge-{{ a.status }}">{{ a.get_status_display }}</span>
+            <div style="font-size:0.75rem; margin-top:0.25rem;">
+              <span class="badge {% if a.payment_status == 'paid' %}badge-paid{% else %}badge-unpaid{% endif %}">
+                {{ a.payment_status|default:"Unpaid" }}
+              </span>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="empty-state">
+          <div class="empty-icon"><span class="material-icons-round" style="font-size:3rem; opacity:0.4;">event_available</span></div>
+          <h3>No bookings yet</h3>
+          <p>Browse our coaching programs and book your first session.</p>
+          <a href="/admissions/apply/" class="btn btn-primary btn-sm" style="margin-top:1rem;">Book Now</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ── Coach Sessions ──────────────────────────────── -->
+    {% if faculty_batches %}
+    <div class="card card-featured">
+      <div class="card-header" style="display:flex; align-items:center; gap:0.5rem;">
+        <span class="material-icons-round" style="color:var(--secondary); font-size:20px;">video_call</span>
+        <h3 style="margin:0;">My Sessions</h3>
+      </div>
+      <div style="padding:1rem;">
+        <div class="grid grid-2">
+        {% for b in faculty_batches %}
+        <div style="background:var(--surface-container-low); border-radius:0.75rem; padding:1rem;">
+          <div style="font-family:var(--font-display); font-weight:700; margin-bottom:0.25rem;">{{ b.name }}</div>
+          <div style="font-size:0.8125rem; color:var(--on-surface-variant);">{{ b.branch.name }}</div>
+          <div style="font-size:0.8125rem; color:var(--on-surface-variant);">{{ b.start_time|time:"H:i" }} – {{ b.end_time|time:"H:i" }}</div>
+          <div style="margin-top:0.5rem; font-size:0.8125rem;">
+            <strong>{{ b.current_students }}</strong> / {{ b.max_students }} clients
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+  </div><!-- /LEFT COLUMN -->
+
+  <!-- RIGHT COLUMN -->
+  <div style="display:flex; flex-direction:column; gap:1.5rem;">
+
+    <!-- ── Activity Feed ────────────────────────────────── -->
+    <div class="card">
+      <div class="card-header">
+        <h3 style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="font-size:18px; color:var(--primary);">bolt</span>
+          Live Activity
+        </h3>
+      </div>
+      <div class="activity-feed">
+        <div class="activity-item">
+          <div class="activity-dot primary"><span class="material-icons-round">person_add</span></div>
+          <div class="activity-body">
+            <div class="activity-title">New Booking</div>
+            <div class="activity-desc">Career Coaching — 1-on-1 Session</div>
+            <div class="activity-time">2 minutes ago</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot secondary"><span class="material-icons-round">event</span></div>
+          <div class="activity-body">
+            <div class="activity-title">Session Created</div>
+            <div class="activity-desc">Mindset Mastery — Group Workshop</div>
+            <div class="activity-time">45 min ago</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot success"><span class="material-icons-round">payments</span></div>
+          <div class="activity-body">
+            <div class="activity-title">Payment Received</div>
+            <div class="activity-desc">₹4,500 — Business Coaching Pack</div>
+            <div class="activity-time">1 hour ago</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot primary"><span class="material-icons-round">verified</span></div>
+          <div class="activity-body">
+            <div class="activity-title">Coach Verified</div>
+            <div class="activity-desc">Ananya Krishnan — Life &amp; Career Coach</div>
+            <div class="activity-time">Yesterday</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot secondary"><span class="material-icons-round">star</span></div>
+          <div class="activity-body">
+            <div class="activity-title">5-Star Review</div>
+            <div class="activity-desc">Fitness Program — "Life-changing!"</div>
+            <div class="activity-time">2 days ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Quick Actions ────────────────────────────────── -->
+    <div class="card">
+      <div class="card-header">
+        <h3 style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="font-size:18px; color:var(--secondary);">flash_on</span>
+          Quick Actions
+        </h3>
+      </div>
+      <div style="padding:1rem; display:flex; flex-direction:column; gap:0.625rem;">
+        <a href="/branches/create/" class="btn btn-secondary btn-sm" style="justify-content:flex-start; gap:0.625rem;">
+          <span class="material-icons-round">person_add</span> Add New Coach
+        </a>
+        <a href="/courses/create/" class="btn btn-secondary btn-sm" style="justify-content:flex-start; gap:0.625rem;">
+          <span class="material-icons-round">library_add</span> Create Program
+        </a>
+        <a href="/batches/create/" class="btn btn-secondary btn-sm" style="justify-content:flex-start; gap:0.625rem;">
+          <span class="material-icons-round">event_available</span> Schedule Session
+        </a>
+        <a href="/admissions/apply/" class="btn btn-primary btn-sm" style="justify-content:flex-start; gap:0.625rem;">
+          <span class="material-icons-round">bookmark_add</span> Book Session
+        </a>
+        <a href="/accounts/profile/" class="btn btn-ghost btn-sm" style="justify-content:flex-start; gap:0.625rem;">
+          <span class="material-icons-round">manage_accounts</span> Profile Settings
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Specialty Coverage ──────────────────────────── -->
+    <div class="card">
+      <div class="card-header">
+        <h3 style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="font-size:18px; color:var(--primary);">pie_chart</span>
+          Specialty Coverage
+        </h3>
+      </div>
+      <div style="padding:1rem;">
+        {% regroup all_branches by city as city_groups %}
+        {% for group in city_groups %}
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:0.625rem 0; border-bottom:1px solid var(--outline-variant);">
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span class="material-icons-round" style="font-size:16px; color:var(--secondary);">hub</span>
+            <span style="font-weight:600; font-size:0.875rem;">{{ group.grouper }}</span>
+          </div>
+          <span style="font-family:var(--font-label); font-size:0.75rem; background:var(--surface-container-high); padding:0.15rem 0.6rem; border-radius:999px;">
+            {{ group.list|length }} coach{{ group.list|length|pluralize:"es" }}
+          </span>
+        </div>
+        {% empty %}
+        <p style="color:var(--on-surface-variant); font-size:0.875rem;">No coaches listed yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- ── Today's Schedule ────────────────────────────── -->
+    <div class="card">
+      <div class="card-header">
+        <h3 style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="font-size:18px; color:var(--secondary);">schedule</span>
+          Today's Sessions
+        </h3>
+      </div>
+      <div style="padding:1rem;">
+        {% for batch in active_batches|slice:":5" %}
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0; border-bottom:1px solid var(--outline-variant);">
+          <div style="width:48px; text-align:center; flex-shrink:0;">
+            <div style="font-family:var(--font-display); font-size:0.875rem; font-weight:700; color:var(--primary);">{{ batch.start_time|time:"H:i" }}</div>
+            <div style="font-size:0.65rem; color:var(--on-surface-variant); font-family:var(--font-label);">{{ batch.end_time|time:"H:i" }}</div>
+          </div>
+          <div style="width:3px; height:36px; background:linear-gradient(180deg,var(--primary),var(--secondary)); border-radius:999px; flex-shrink:0;"></div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:600; font-size:0.8125rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ batch.name }}</div>
+            <div style="font-size:0.75rem; color:var(--on-surface-variant);">{{ batch.branch.city }}</div>
+          </div>
+        </div>
+        {% empty %}
+        <p style="color:var(--on-surface-variant); font-size:0.875rem; text-align:center; padding:1rem 0;">No sessions scheduled.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div><!-- /RIGHT COLUMN -->
+
+</div><!-- /Main Grid -->
+
+<style>
+.branch-map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+.branch-map-card:hover {
+  background: var(--surface-container-high) !important;
+  transform: translateY(-1px);
+}
+@media (max-width: 1100px) {
+  .dashboard-main-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+{% endblock %}

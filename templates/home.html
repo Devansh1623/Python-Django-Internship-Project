@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block auth_content %}
+<!-- ── Public Navigation ─────────────────────────────── -->
+<nav class="public-nav">
+  <div class="nav-brand">
+    <div class="brand-dot"></div>
+    <span class="brand-name">CoachBook</span>
+  </div>
+  <div class="public-nav-links">
+    <a href="#">How It Works</a>
+    <a href="#">Specialties</a>
+    <a href="#">Coaches</a>
+    <a href="#">Pricing</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="public-nav-actions">
+    <a class="btn btn-ghost btn-sm" href="/accounts/login/">Sign In</a>
+    <a class="btn btn-primary btn-sm" href="/accounts/register/">Get Started Free</a>
+  </div>
+</nav>
+
+<!-- ── Hero ──────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Online Coaching Booking Platform</div>
+      <h1 class="hero-title">
+        Book Your <span>Expert Coach</span><br>In Minutes
+      </h1>
+      <p class="hero-subtitle">
+        CoachBook connects you with certified, vetted coaches across career, fitness, mindset, and skills. Flexible sessions. Real results. All in one beautifully simple platform.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="/accounts/register/">
+          <span class="material-icons-round">rocket_launch</span> Start Booking
+        </a>
+        <a class="btn btn-ghost btn-lg" href="/accounts/login/">
+          <span class="material-icons-round">login</span> Sign In
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-visual-card">
+        <span class="hero-visual-icon">🎯</span>
+        <div class="hero-visual-title">CoachBook Platform</div>
+        <div class="hero-visual-sub">Your personalised coaching hub</div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value">500+</div>
+            <div class="hero-stat-label">Expert Coaches</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">12k+</div>
+            <div class="hero-stat-label">Sessions Booked</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">98%</div>
+            <div class="hero-stat-label">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Coaching Specialties ──────────────────────────── -->
+<div class="section-full">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">Our Specialties</div>
+      <h2 class="section-title">Find the Right Coach for You</h2>
+      <p class="section-sub">From career pivots to peak performance — our network of certified coaches covers every dimension of your growth.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="dance-card card-featured">
+        <span class="dance-card-icon">💼</span>
+        <div class="dance-card-title">Career &amp; Leadership</div>
+        <p class="dance-card-desc">Accelerate your career with proven frameworks. Navigate promotions, job transitions, and executive presence with confidence.</p>
+        <span class="dance-card-tag">Professional Growth</span>
+      </div>
+      <div class="dance-card">
+        <span class="dance-card-icon">🧠</span>
+        <div class="dance-card-title">Mindset &amp; Wellbeing</div>
+        <p class="dance-card-desc">Build resilience, overcome limiting beliefs, and design a life aligned with your authentic values and ambitions.</p>
+        <span class="dance-card-tag">Mental Wellness</span>
+      </div>
+      <div class="dance-card">
+        <span class="dance-card-icon">🏋️</span>
+        <div class="dance-card-title">Health &amp; Fitness</div>
+        <p class="dance-card-desc">Personalised nutrition and training plans from certified health coaches. Sustainable transformation, not quick fixes.</p>
+        <span class="dance-card-tag">Body &amp; Health</span>
+      </div>
+      <div class="dance-card">
+        <span class="dance-card-icon">📈</span>
+        <div class="dance-card-title">Business &amp; Startups</div>
+        <p class="dance-card-desc">Turn your idea into a venture. Coaches who have built, scaled, and exited businesses share their hard-won playbooks.</p>
+        <span class="dance-card-tag">Entrepreneurship</span>
+      </div>
+      <div class="dance-card">
+        <span class="dance-card-icon">🎨</span>
+        <div class="dance-card-title">Creative Skills</div>
+        <p class="dance-card-desc">Unlock your creative potential in design, writing, photography, or music with coaches who are active practitioners.</p>
+        <span class="dance-card-tag">Creative Arts</span>
+      </div>
+      <div class="dance-card">
+        <span class="dance-card-icon">🌐</span>
+        <div class="dance-card-title">Tech &amp; Coding</div>
+        <p class="dance-card-desc">Go from zero to developer or level up your stack with live, interactive sessions from senior engineers and architects.</p>
+        <span class="dance-card-tag">Technology</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── How It Works ──────────────────────────────────── -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Simple Process</div>
+    <h2 class="section-title">Book a Session in 3 Steps</h2>
+    <p class="section-sub">We've removed every friction point so you can focus on what matters — growing.</p>
+  </div>
+  <div class="grid grid-3">
+    <div class="branch-card" style="border-top: 3px solid var(--primary);">
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+      <div class="branch-name">1. Browse &amp; Filter</div>
+      <p style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.65;">Search coaches by specialty, language, availability, and price. Read verified reviews and watch intro videos.</p>
+    </div>
+    <div class="branch-card" style="border-top: 3px solid var(--secondary);">
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;">📅</div>
+      <div class="branch-name">2. Book Instantly</div>
+      <p style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.65;">Pick a time slot that works for you. Secure your session with a single click — no back-and-forth emails.</p>
+    </div>
+    <div class="branch-card" style="border-top: 3px solid var(--tertiary-container);">
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚀</div>
+      <div class="branch-name">3. Grow Together</div>
+      <p style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.65;">Join your session via our built-in video room. Track progress, set goals, and book your next session seamlessly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Quote / Testimonial ────────────────────────────── -->
+<div class="section-full">
+  <div class="section">
+    <div class="quote-block">
+      <p class="quote-text">"Within 8 weeks of coaching on CoachBook, I landed a senior engineering role with a 40% salary increase. My coach didn't just prepare me — she fundamentally changed how I see my own value."</p>
+      <div class="quote-author">— Priya Sharma, Senior Engineer · Booked via CoachBook</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA Banner ─────────────────────────────────────── -->
+<div class="section">
+  <div style="text-align:center; padding: 3rem 0;">
+    <div class="section-eyebrow" style="justify-content:center; display:flex;">Start Today. Free.</div>
+    <h2 class="section-title" style="margin-bottom:1rem;">Ready to unlock your<br>full potential?</h2>
+    <p class="section-sub" style="margin:0 auto 2rem;">Join 12,000+ learners already transforming their lives with expert coaching. First session is on us.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a class="btn btn-primary btn-lg" href="/accounts/register/">
+        <span class="material-icons-round">how_to_reg</span> Create Free Account
+      </a>
+      <a class="btn btn-secondary btn-lg" href="/accounts/login/">Sign In →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────── -->
+<footer class="public-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">CoachBook</div>
+      <p class="footer-desc">The modern platform for expert coaching. Connecting ambitious individuals with certified coaches across every life domain since 2024.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Platform</div>
+      <div class="footer-links">
+        <a href="#">Browse Coaches</a>
+        <a href="/accounts/login/">Sign In</a>
+        <a href="/accounts/register/">Get Started</a>
+        <a href="#">Pricing</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Legal</div>
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <span>© 2024 CoachBook. All rights reserved.</span>
+    <span>Built with ❤️ for learners worldwide.</span>
+  </div>
+</footer>
+{% endblock %}

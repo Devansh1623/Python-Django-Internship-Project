@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heritage Dance Academy | Discover the Art of Dance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#8e706c",
+              "tertiary": "#352312",
+              "surface-container-highest": "#e5e2db",
+              "secondary-container": "#fed65b",
+              "surface": "#fcf9f2",
+              "on-error": "#ffffff",
+              "on-surface": "#1c1c18",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#ffe088",
+              "on-tertiary-container": "#bea28a",
+              "on-background": "#1c1c18",
+              "on-secondary-fixed": "#241a00",
+              "on-primary-fixed-variant": "#8f0f07",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#574500",
+              "primary-fixed": "#ffdad4",
+              "inverse-on-surface": "#f3f0ea",
+              "surface-container-low": "#f6f3ec",
+              "secondary-fixed-dim": "#e9c349",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#ffb4a8",
+              "inverse-surface": "#31312c",
+              "on-primary-fixed": "#410000",
+              "primary": "#570000",
+              "on-secondary-container": "#745c00",
+              "on-primary-container": "#ff8371",
+              "secondary": "#735c00",
+              "surface-dim": "#dcdad3",
+              "surface-variant": "#e5e2db",
+              "error": "#ba1a1a",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#4c3926",
+              "background": "#fcf9f2",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#5a413d",
+              "outline-variant": "#e2bfb9",
+              "on-tertiary-fixed-variant": "#57432f",
+              "on-tertiary-fixed": "#281808",
+              "surface-container": "#f0eee7",
+              "tertiary-fixed-dim": "#dfc1a8",
+              "surface-container-high": "#ebe8e1",
+              "surface-tint": "#b22b1d",
+              "primary-container": "#800000",
+              "surface-bright": "#fcf9f2",
+              "tertiary-fixed": "#fcddc2",
+              "inverse-primary": "#ffb4a8"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>body {
+    font-family: "Manrope", sans-serif;
+    background-color: #fcf9f2
+    }
+.font-serif {
+    font-family: "Noto Serif", serif
+    }
+.font-inter {
+    font-family: "Inter", sans-serif
+    }
+.glass-nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px)
+    }
+.noise-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAR20RT1U4gFuemBeV0VrjRqUSPxMkfftjGF9OmU8XYNF7NqhQD2VyzcV8kBuEA1L89kUA7cy1_te75vbR5dMSWBglpVD6vppowKdjlnebOKHiMM2ZgxU97veQh_etLe-ul3yVTVnNno31oc5DQwyifoLH1Yv7pc0nxNxvnwSc4UWQDnO3PjR8jZ3WJ3HA-5PHXqWII3eR8Frgqh_cDwbvy3QrTD8BwNCvoeFaBTDee152ZJe4PXHSeNkYitcHqUicrUQPJnKiB0xM)
+    }</style>
+</head>
+<body class="text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md transition-all duration-300">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif italic text-amber-600">Heritage Dance Academy</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="text-amber-700 border-b-2 border-amber-600 pb-1 text-sm font-medium tracking-wide transition-colors duration-300" href="#">Explore Classes</a>
+<a class="text-stone-800 hover:text-amber-500 text-sm font-medium tracking-wide transition-colors duration-300" href="#">Join School</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="bg-primary-container text-white px-8 py-2.5 rounded-lg font-medium text-sm hover:opacity-90 transition-all">Login</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden noise-texture">
+<!-- Decorative Silhouette -->
+<div class="absolute inset-0 z-0 flex justify-center items-center opacity-10 pointer-events-none">
+<img alt="" class="w-full h-full object-cover" data-alt="Elegant silhouette of a Bharatanatyam dancer in a classical pose against a warm parchment background with subtle textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5erF4zE7L_2O0l0kJqbVxxUwnC5qR4zNmh3mQn0kyw_Ny7YxpxHpEhWLpNG8_wqv419hiSupjCz8M5NMaJ4DET-V0RxizKAjnVNdm9ZbQ6V8vuz6fSuQdRXUnqrBnLgFcSxy0NGdFXZ8mqII5wG6kM9pO8h46UzyucgQnQNOx13asQGiJzYc0zanCAcZ1MINQuiKvFHZ2r54OMoCP66r_yrwuTImdJf6LbHOMrz1NFbYnrIXc22EYHdZ1Vjx3FjhLqIWG5TDOXMU"/>
+</div>
+<div class="relative z-10 max-w-5xl mx-auto text-center px-6">
+<h1 class="text-5xl md:text-7xl font-serif text-primary mb-8 leading-tight tracking-tight">
+                    Discover the <span class="italic text-secondary">Art</span> of Dance
+                </h1>
+<p class="text-xl md:text-2xl font-serif italic text-tertiary mb-12 max-w-2xl mx-auto opacity-80">
+                    Join the finest classical and modern dance schools across multiple branches
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-10 py-4 rounded-lg text-lg font-medium shadow-xl hover:scale-105 transition-transform">
+                        Explore Classes
+                    </button>
+<button class="bg-surface-container-lowest text-secondary px-10 py-4 rounded-lg text-lg font-medium border border-secondary/20 hover:bg-surface-container-low transition-colors">
+                        Learn Our History
+                    </button>
+</div>
+</div>
+<!-- Mandala Motif -->
+<div class="absolute bottom-[-10%] right-[-5%] w-96 h-96 opacity-5 pointer-events-none">
+<img alt="" class="w-full h-full object-contain" data-alt="Intricate golden mandala pattern with complex geometric details on a transparent background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfThnyAx4cdb5_A-QRAYceA6-LwjJ7v7v0RgFTk_I1LJIj3IO5AcpnSB-gb6Y3BmCuEzMnJfRQWKV8IdwLyhlw77whZWbP3e3fvRDdcwO3xYeaMHhaRuo8v9iHKBrITAmkSWMPGyxywXeD5O7wCayoVe8xoBMbBc0mSOU_Nbc70VxMSLsjCsevJWEE6x8Pb7xAKFWedgB-0KiQuCjBSOrVQHD21tDKby4rDQ7WpaDtGbZ9CWEAGyP2dC6VCWvLx2CSfEGLxCtKnvQ"/>
+</div>
+</section>
+<!-- Styles Section - Bento Grid -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="mb-16 text-center md:text-left">
+<span class="font-inter text-xs uppercase tracking-[0.3em] text-secondary font-bold">Curriculum</span>
+<h2 class="text-4xl font-serif text-primary mt-2">Classical &amp; Modern Disciplines</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-2 group relative overflow-hidden rounded-xl bg-surface-container-low">
+<img alt="Bharatanatyam" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="Close-up of a Bharatanatyam dancer's hand gestures (mudras) with intricate henna and jewelry in soft sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkikdvvUY9EZ0jYfXCWihxrlzyfnKIfPzSSKPYVnmjmxW2dUsZ71L0WYjEH-gsL2sGSNBHDnNwvWulmYKWhcqvn9gm3Zym9a1uWYQYOZLuK_NjKGLPJ31tT6V6S7rQCzD4IYh7IjYBSmPEd1YPVNyAw_n3upWXi4OO7ai0bxEYJ0QglUjYlM_3GoOyaTJs4N_VyzYqlb1WzmIMwRohaWl8i0L9bjQmUxwSyvWGsQRJoEyyrePCY2gcsZI4gk3zfRL-GaIr98k3mM0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-0 p-8">
+<h3 class="text-3xl font-serif text-white mb-2">Bharatanatyam</h3>
+<p class="text-white/80 font-serif italic">The oldest classical dance tradition of India.</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-low">
+<img alt="Kathak" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Kathak dancer's feet with traditional bells (ghungroo) capturing a rhythmic movement on a wooden stage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8ARkuICc4S0UquRyBY1JXbIvIwmzP6JvhZag3feNHRQ5Q_5NC442p0K3Ysi9MmMQMbY5FeyuKHG_kvZUi_OT5LMkoZRzz1411wcfTS64ZjV955ZzDhLbIaAk79pLFbUxBFLLyAVyD7mU3e5FHBqBpgRsuTeEiIhOV7Ly6xRO3pxkqK7OHhcg620lbL1GD3aHcPNo8a7AK2G-evIPjC1Lwi0cDefjHC3iXHO2FNEQpuo6nJMBPyt2ydJKlTVALCVJTC64XOzHc0v4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/90 to-transparent"></div>
+<div class="absolute bottom-0 p-6">
+<h3 class="text-2xl font-serif text-white">Kathak</h3>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-low">
+<img alt="Contemporary" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Modern contemporary dancer mid-leap in a minimalist studio with soft natural light and shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsdU2ZEBHi-USSQdnDjajPHnztz2YZure_RPfVlSmJBiXFg24YvavP4ccllKRU_zOW9AYZyB-hPho_k-6byx1KrHxe2s-l6oMK4cub1Z5UtvJk3B1TbQ3QZynznNYL-jPHsBraHaR5ERLb3K2MCXGOmgYwowScCdz6KwK5LxzOaEnISIoAM5QXGOAJQOcJT5PJEqiFvSq5tNEbhWNorQBzg_AeBf9h_M7_BjgzGoEaE6bzvWMNFntlgX2EAI0T54_HM0lPm0BNRXc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent"></div>
+<div class="absolute bottom-0 p-6">
+<h3 class="text-2xl font-serif text-white">Contemporary</h3>
+</div>
+</div>
+<div class="md:col-span-2 group relative overflow-hidden rounded-xl bg-surface-container-low">
+<img alt="Odissi" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="Odissi dancer in traditional costume against a backdrop of ancient stone temple pillars with warm morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVWxDuY01xYu_bP3uK-wBQ85rb3mYxCEzkrLFi5GJPqQsDYzIzd1K6E53aHIoXg2GEVhDBOG8gSRiFbkVvyRGdKNzUR-ozoKmKHf3mOe2PDcU_8mh1znJd-ZprpuhzaxPb2kmOGvQzVQVTnvnP6ElLgnq8f_sCB5Wfwo-0_mOKml_qqCN6h2dyM--ci3CjtOp74O3ZnaJBbMeGmReElOk7AHu6ALrf266rHudOc9n-T061ytO-aw515FFit5UfMUwmlAv1aa0cDMw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-0 p-8 text-right w-full">
+<h3 class="text-3xl font-serif text-white mb-2">Odissi</h3>
+<p class="text-white/80 font-serif italic">Fluidity, grace, and sculpture-like poses.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Branches -->
+<section class="bg-surface-container-low py-24 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<span class="font-inter text-xs uppercase tracking-[0.3em] text-secondary font-bold">Our Presence</span>
+<h2 class="text-4xl font-serif text-primary mt-2">Signature Academies</h2>
+</div>
+<a class="text-primary font-medium hover:underline flex items-center gap-2" href="#">
+                        View All Locations <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Branch 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border-t-4 border-secondary/40">
+<div class="h-64 overflow-hidden">
+<img alt="Mumbai Branch" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Luxury heritage building in Mumbai with arched windows and colonial architecture, converted into a high-end dance studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEWrhYiiFw9dcnZQ0ym0QTMnRvNxLHotTcLyttabHOAwoC6LS8KtcQCTzAIb1WAIV5hDG9EmX7h5v4Ue5Y7wwHQVyJC4yK-YTfpzbNECvB0YSw5zCRYwu5UD3RfnpkNr3ZmAOFUPvP_v-1PgqrkHViXYxYOl5P0ho-bmuqgWvTpn17tm4gANP3VTILQTp7oyka14mW4vEfqMqb7jULMUcWCLWYd1NjA7GdPh40dDPgXOHlnG6YG5-jlK1Ge4totipCk8Nvr69sOOs"/>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-serif text-primary mb-1">South Mumbai Studio</h3>
+<p class="text-stone-500 text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                Colaba Heritage District, Mumbai
+                            </p>
+<button class="w-full py-3 rounded-lg border border-primary text-primary font-medium hover:bg-primary hover:text-white transition-colors">
+                                View Details
+                            </button>
+</div>
+</div>
+<!-- Branch 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border-t-4 border-secondary/40">
+<div class="h-64 overflow-hidden">
+<img alt="Bengaluru Branch" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Minimalist modern dance studio in Bengaluru with wide glass windows overlooking a lush tropical garden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY67p9R-J_DeI1K1sXFwiqnBOLNNNuqzRKmhSpT_KbwHSFSZxTvOum8anIuf8g63D2YcJpk7ar6vDP__ZUand6vSWtOHl_y0Zc7_67OgHonIzTPkApuM5jFbuuXo1G1GLrwIvow-AohzTO_nbn7Aev_xPvEdIrmJvzb9iAc3d8daI7CXcMY1XlacOKnBVoqtC1NxWu5yMN94qCUCOE2HLcQ7ZNMEcUnP5d0pBZNCm9G9RFCTwjtMkO-jFjhuVHWWrDW6LUQUg01zo"/>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-serif text-primary mb-1">Indiranagar Center</h3>
+<p class="text-stone-500 text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                100ft Road, Bengaluru
+                            </p>
+<button class="w-full py-3 rounded-lg border border-primary text-primary font-medium hover:bg-primary hover:text-white transition-colors">
+                                View Details
+                            </button>
+</div>
+</div>
+<!-- Branch 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border-t-4 border-secondary/40">
+<div class="h-64 overflow-hidden">
+<img alt="Delhi Branch" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Spacious classical dance hall in Delhi with high ceilings, dark wood floors, and warm amber spotlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6nE_8SiIK_QjMZIwgy_RJDzXTmBM94b0mUmr-BndjvVBl0o9JvQ1kw6tb8ZOGil9FMs0kfNcZ9CD_woRfpt24W5f0VnW00F8xqJGa1kdcj3_9vZ6VUSuyiMKCrwRHRvN4IxdaxdxFAT_5CXteHzZUXJNzjSixtezGHamNOLnlLssc7-j-KlXzVRoY2JY9Xtc5OB4EeITjpV4hheCapFhm6Px9MGaYM3eS37pNfhH227gr1ijOvNM_Kytp9NORYSRy1JdfAIJjMNU"/>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-serif text-primary mb-1">Civil Lines Academy</h3>
+<p class="text-stone-500 text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                North Delhi Heritage Zone, Delhi
+                            </p>
+<button class="w-full py-3 rounded-lg border border-primary text-primary font-medium hover:bg-primary hover:text-white transition-colors">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 px-8 overflow-hidden relative">
+<div class="max-w-4xl mx-auto relative z-10">
+<div class="text-center mb-16">
+<span class="material-symbols-outlined text-5xl text-secondary opacity-50">format_quote</span>
+</div>
+<div class="text-center space-y-12">
+<blockquote class="text-3xl md:text-4xl font-serif italic text-primary leading-relaxed">
+                        "Dance is the hidden language of the soul. At Heritage, we don't just teach steps; we nurture the divine rhythm that lives within each practitioner."
+                    </blockquote>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-secondary-container mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">person</span>
+</div>
+<h4 class="font-serif text-xl text-tertiary">Dr. Meenakshi Iyer</h4>
+<p class="text-sm font-inter uppercase tracking-widest text-secondary mt-1">Founder &amp; Lead Acharya</p>
+</div>
+</div>
+</div>
+<!-- Decorative Accent -->
+<div class="absolute top-1/2 left-0 w-64 h-[1px] bg-gradient-to-r from-secondary/40 to-transparent"></div>
+<div class="absolute top-1/2 right-0 w-64 h-[1px] bg-gradient-to-l from-secondary/40 to-transparent"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container text-amber-500 py-16 px-8 mt-auto border-t-4 border-amber-600/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-7xl mx-auto text-center md:text-left">
+<div>
+<div class="text-2xl font-serif italic text-amber-500 mb-6">Heritage Dance Academy</div>
+<p class="text-xs font-serif italic opacity-80 text-stone-300 max-w-xs mx-auto md:mx-0">
+                    Preserving the classical legacy while embracing modern evolution. Join our journey of rhythm and grace.
+                </p>
+</div>
+<div class="flex flex-col space-y-4">
+<h5 class="font-serif text-lg text-amber-500 mb-2">Quick Links</h5>
+<a class="text-stone-300 hover:text-amber-400 transition-all text-xs font-serif italic" href="#">About Us</a>
+<a class="text-stone-300 hover:text-amber-400 transition-all text-xs font-serif italic" href="#">Terms of Service</a>
+<a class="text-stone-300 hover:text-amber-400 transition-all text-xs font-serif italic" href="#">Privacy Policy</a>
+<a class="text-stone-300 hover:text-amber-400 transition-all text-xs font-serif italic" href="#">Contact</a>
+</div>
+<div class="flex flex-col space-y-6">
+<h5 class="font-serif text-lg text-amber-500">Subscribe to our Newsletter</h5>
+<div class="flex">
+<input class="bg-primary/40 border-none rounded-l-lg px-4 py-2 text-stone-300 text-sm w-full focus:ring-1 focus:ring-amber-500/50" placeholder="Email Address" type="email"/>
+<button class="bg-amber-600 text-white px-4 py-2 rounded-r-lg hover:bg-amber-500 transition-colors">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+<div class="flex justify-center md:justify-start space-x-6">
+<span class="material-symbols-outlined cursor-pointer hover:scale-110 transition-transform">social_leaderboard</span>
+<span class="material-symbols-outlined cursor-pointer hover:scale-110 transition-transform">camera</span>
+<span class="material-symbols-outlined cursor-pointer hover:scale-110 transition-transform">youtube_activity</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-amber-600/20 text-center">
+<p class="text-xs font-serif italic opacity-60 text-stone-300">
+                © 2024 Heritage Dance Academy. All rights reserved. Crafted with cultural devotion.
+            </p>
+</div>
+</footer>
+</body></html>

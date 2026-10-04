@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#8e706c",
+              "tertiary": "#352312",
+              "surface-container-highest": "#e5e2db",
+              "secondary-container": "#fed65b",
+              "surface": "#fcf9f2",
+              "on-error": "#ffffff",
+              "on-surface": "#1c1c18",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#ffe088",
+              "on-tertiary-container": "#bea28a",
+              "on-background": "#1c1c18",
+              "on-secondary-fixed": "#241a00",
+              "on-primary-fixed-variant": "#8f0f07",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#574500",
+              "primary-fixed": "#ffdad4",
+              "inverse-on-surface": "#f3f0ea",
+              "surface-container-low": "#f6f3ec",
+              "secondary-fixed-dim": "#e9c349",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#ffb4a8",
+              "inverse-surface": "#31312c",
+              "on-primary-fixed": "#410000",
+              "primary": "#570000",
+              "on-secondary-container": "#745c00",
+              "on-primary-container": "#ff8371",
+              "secondary": "#735c00",
+              "surface-dim": "#dcdad3",
+              "surface-variant": "#e5e2db",
+              "error": "#ba1a1a",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#4c3926",
+              "background": "#fcf9f2",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#5a413d",
+              "outline-variant": "#e2bfb9",
+              "on-tertiary-fixed-variant": "#57432f",
+              "on-tertiary-fixed": "#281808",
+              "surface-container": "#f0eee7",
+              "tertiary-fixed-dim": "#dfc1a8",
+              "surface-container-high": "#ebe8e1",
+              "surface-tint": "#b22b1d",
+              "primary-container": "#800000",
+              "surface-bright": "#fcf9f2",
+              "tertiary-fixed": "#fcddc2",
+              "inverse-primary": "#ffb4a8"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>body {
+    font-family: "Manrope", sans-serif;
+    background-color: #fcf9f2
+    }
+.font-serif {
+    font-family: "Noto Serif", serif
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.glass-nav {
+    backdrop-filter: blur(12px);
+    background-color: rgba(252, 249, 242, 0.8)
+    }
+.paper-texture {
+    position: relative
+    }
+.paper-texture::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAxjGAqn-FINPck-jLmC3XUdbQ7IqO03B9i48aIl6En6f0nbad-BVFnyc_KEMrpu8hVfyWWyGtTARxoJq8UsvfydlpGiAMqMpYOAJnx-jGJOFJOvVgFs9L3YWCXAUuOK8_GKHoHETT2YTZCNDMQEgMN3iMP7OWB-5KNRyGcIKVEVlrwKfKAA48FFmSo0sSDF4ocVbqaS2gwnAYNsYA3MWcXocJiSihELPkgj2DX19KA1hdrv5te5BvcLRxo5cLfnTknYyOPVG4Zx9U)
+    }</style>
+</head>
+<body class="paper-texture text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md dark:bg-transparent">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif italic text-amber-600 dark:text-amber-500">Heritage Dance Academy</div>
+<div class="hidden md:flex space-x-12 items-center">
+<a class="text-sm font-medium tracking-wide text-amber-700 dark:text-amber-400 border-b-2 border-amber-600 pb-1 hover:text-amber-500 transition-colors duration-300" href="#">Explore Classes</a>
+<a class="text-sm font-medium tracking-wide text-stone-800 dark:text-stone-200 hover:text-amber-500 transition-colors duration-300" href="#">Join School</a>
+<button class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label text-sm uppercase tracking-widest hover:bg-primary transition-all duration-300">Login</button>
+</div>
+</div>
+</nav>
+<!-- Hero Header -->
+<header class="pt-32 pb-16 px-8 max-w-7xl mx-auto text-center md:text-left">
+<span class="label-md uppercase tracking-[0.3em] text-secondary font-semibold text-xs mb-4 block">Our Curriculum</span>
+<h1 class="text-5xl md:text-7xl font-headline font-bold text-primary leading-tight max-w-3xl">Our Dance Disciplines</h1>
+<p class="mt-6 text-lg text-tertiary opacity-80 max-w-2xl font-serif italic">Discover the rhythm of heritage. From the classical precision of Bharatanatyam to the expressive storytelling of Kathak, find your path in our ancestral arts.</p>
+</header>
+<!-- Filter Bar -->
+<section class="sticky top-[72px] z-40 bg-surface/90 backdrop-blur-sm mb-12 border-y border-outline-variant/15">
+<div class="max-w-7xl mx-auto px-8 py-6 flex flex-wrap gap-6 items-center justify-between">
+<div class="flex flex-wrap gap-4 items-center">
+<!-- Filter Group -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-high border-none rounded-full px-6 py-2 text-sm font-label focus:ring-2 focus:ring-secondary/30 transition-all cursor-pointer pr-10">
+<option>All Branches</option>
+<option>Main Campus (Varanasi)</option>
+<option>Bengaluru Studio</option>
+<option>Chennai Center</option>
+</select>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-high border-none rounded-full px-6 py-2 text-sm font-label focus:ring-2 focus:ring-secondary/30 transition-all cursor-pointer pr-10">
+<option>All Styles</option>
+<option>Bharatanatyam</option>
+<option>Kathak</option>
+<option>Odissi</option>
+<option>Contemporary Indian</option>
+</select>
+</div>
+<div class="flex bg-surface-container-low rounded-full p-1">
+<button class="px-6 py-1.5 rounded-full text-sm font-medium bg-primary text-on-primary shadow-sm">All Levels</button>
+<button class="px-6 py-1.5 rounded-full text-sm font-medium text-on-surface-variant hover:bg-surface-container-highest transition-colors">Beginner</button>
+<button class="px-6 py-1.5 rounded-full text-sm font-medium text-on-surface-variant hover:bg-surface-container-highest transition-colors">Advanced</button>
+</div>
+</div>
+<div class="text-sm font-serif italic text-tertiary/60">Showing 12 Disciplines</div>
+</div>
+</section>
+<!-- Course Grid -->
+<main class="max-w-7xl mx-auto px-8 pb-24">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Card 1: Bharatanatyam -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/30 rounded-xl transition-colors duration-500 pointer-events-none z-10"></div>
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="Close-up of a Bharatanatyam dancer's intricate hand gestures and temple jewelry against a deep maroon background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-e--i4KlHjKPzNbRD5R52n7sDr4Z5vhwAIYf9pz4WJOciy05LiXdgLTRICex5U2ReDdOioMzyQ7yBwilRtdvHGO-BqeqYJIMh1iYtcTv1N-ZdG_81OMILYBgEjzyNZ7DgovIsv50m9D3sIxPcdF6nRB_F-uX0Q9O1IxudLwR1R1WsbOMWSTi0EYsfok5txMGhtxR4osjK3oC57hNiNK36cby5X1AKJY0uaHTuiDyVPGHPB9toKgpCwdEL9VCOqGMYZ0DCbIjG5vg"/>
+<div class="absolute top-4 left-4 bg-primary/90 text-on-primary px-3 py-1 rounded text-[10px] tracking-widest uppercase font-label">Level 1</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-headline font-bold text-primary">Bharatanatyam</h3>
+<span class="text-secondary font-label font-bold">₹12,000</span>
+</div>
+<p class="text-tertiary/70 text-sm mb-6 font-serif italic leading-relaxed">Master the foundation of Tamil Nadu's classical dance through Adavus and expression.</p>
+<div class="space-y-3 mb-8">
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="schedule">schedule</span>
+                            6 Months Program
+                        </div>
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="location_on">location_on</span>
+                            Main Campus (Varanasi)
+                        </div>
+</div>
+<button class="w-full py-4 bg-surface-container-low border border-outline-variant/20 rounded-lg text-primary font-bold uppercase tracking-widest text-xs group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">View Batches</button>
+</div>
+</div>
+<!-- Card 2: Kathak -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/30 rounded-xl transition-colors duration-500 pointer-events-none z-10"></div>
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="Dancer performing fast footwork in Kathak with traditional ankle bells or ghungroos caught in motion with dramatic side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHGLbnPY02JC71YNC1oGPqLnfmR9KxGZLE36cpt6D0_MGeK_dcUd5ro-j7p9edL-MYMfSoveKHch6YssSnhph14C1X3AfGub05jGDkr8K3tH8gqWdN9Svw-SppvGX2MSuUT-uQgvBhGdudzx9qmFT6o4i9pUcuuazcW8DYcFPmB0oZTos-YjDpp4YVb0xrBJLmEHCCyVJHFjaxFBhN4aq-Saa4PTUpXgMDik3tpBs9dhZZBNlpl_4fxCqkfkFmegQkxM_VCiRHIyc"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded text-[10px] tracking-widest uppercase font-label">Advanced</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-headline font-bold text-primary">Kathak</h3>
+<span class="text-secondary font-label font-bold">₹15,500</span>
+</div>
+<p class="text-tertiary/70 text-sm mb-6 font-serif italic leading-relaxed">The art of storytelling through rhythmic footwork and swirling 'Chakkars'.</p>
+<div class="space-y-3 mb-8">
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="schedule">schedule</span>
+                            9 Months Diploma
+                        </div>
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="location_on">location_on</span>
+                            Bengaluru Studio
+                        </div>
+</div>
+<button class="w-full py-4 bg-surface-container-low border border-outline-variant/20 rounded-lg text-primary font-bold uppercase tracking-widest text-xs group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">View Batches</button>
+</div>
+</div>
+<!-- Card 3: Odissi -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/30 rounded-xl transition-colors duration-500 pointer-events-none z-10"></div>
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="Elegant posture of an Odissi dancer showcasing the Tribhanga pose with traditional silver jewelry against a soft warm studio light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaz3r6xFYX_LpIPIlAfx2dbGKZVn5_OwIINal8Hwc3gb4-mBK1ELv6ITO-c1RyBBaRLGglJ8mx-7miUZzCX8t2deZI5riBgsg7q9dRKFJY2KI9CDvfXZR7dYhmCGpBoU328RVBIEhF0FaufhusnEBM4khhTG_LiAmaRivs03r26DtDhtjO5DCEDuTCNFhc_HcUKkYRpOvknXHWhgSoSawmRpgoYkI5f1py6WbBHS11aqe-SF-jEhSIV9r6_5SId9ph32VVdwUbUv4"/>
+<div class="absolute top-4 left-4 bg-primary/90 text-on-primary px-3 py-1 rounded text-[10px] tracking-widest uppercase font-label">Level 1</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-headline font-bold text-primary">Odissi</h3>
+<span class="text-secondary font-label font-bold">₹11,000</span>
+</div>
+<p class="text-tertiary/70 text-sm mb-6 font-serif italic leading-relaxed">A visual poetry of lyrical movements originating from the temples of Odisha.</p>
+<div class="space-y-3 mb-8">
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="schedule">schedule</span>
+                            4 Months Intensive
+                        </div>
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="location_on">location_on</span>
+                            Chennai Center
+                        </div>
+</div>
+<button class="w-full py-4 bg-surface-container-low border border-outline-variant/20 rounded-lg text-primary font-bold uppercase tracking-widest text-xs group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">View Batches</button>
+</div>
+</div>
+<!-- Card 4: Mohiniyattam -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/30 rounded-xl transition-colors duration-500 pointer-events-none z-10"></div>
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="Dancer in a white and gold Kasavu saree performing Mohiniyattam with fluid swaying motions in a sunlit classical hall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK5hauSKOHF3qpzjkGiylzdgDGcNjDYm0C6HlrjDvJQokgB40_4NdPjIqM9Ku1Z5eKyvyYByi9xcF_i-yUXGh4fQ5q3hiGbqSKIB3Bh9C2BBUeQ8gmzpzJGBrbTra3E5EfbI9YmCNsaGaAuEFTPM9JL2C0MTznlus3Lzzio0T_5l2hs1hgnUoxnDSZunVh-QWEyiILeYb3wQQaJdkKvCXhrJOkvvHPrIWhF8w-KRgQMHZUk6r1W8K4zZSLyAGD78HCAc5v1bEPjFw"/>
+<div class="absolute top-4 left-4 bg-primary/90 text-on-primary px-3 py-1 rounded text-[10px] tracking-widest uppercase font-label">Level 1</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-headline font-bold text-primary">Mohiniyattam</h3>
+<span class="text-secondary font-label font-bold">₹13,500</span>
+</div>
+<p class="text-tertiary/70 text-sm mb-6 font-serif italic leading-relaxed">The "Dance of the Enchantress" from Kerala, defined by feminine grace and circular sway.</p>
+<div class="space-y-3 mb-8">
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="schedule">schedule</span>
+                            6 Months Program
+                        </div>
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="location_on">location_on</span>
+                            Main Campus (Varanasi)
+                        </div>
+</div>
+<button class="w-full py-4 bg-surface-container-low border border-outline-variant/20 rounded-lg text-primary font-bold uppercase tracking-widest text-xs group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">View Batches</button>
+</div>
+</div>
+<!-- Card 5: Kuchipudi -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/30 rounded-xl transition-colors duration-500 pointer-events-none z-10"></div>
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="Classical Kuchipudi dancer balancing on a brass plate with a water pot on the head, highlighting incredible balance and precision" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUHj_u_U4LVAmM_P2Eni5cvpCz7VtbyOZfUq_ecZxEEpd7jpFqX5L_wd8Pka8An9qUUwLLV_POJUm--KcDj6Z0Gvq4xls9Y6dp1-12327lJZkXRTdPn0gKtDwy0iUBFNt04HlsWQ8xaEMdz3i_9llYmYhKiV0KUYY90DqcVzicfJqpLPtmGCY3v12UTbQVK2i_BrHLUKiGyEwvyaM9NUa7M_Troteo6aXsMmLzIQYEgwVTWNrtLIbb-KT1q_J4MMeERUpDVXrPhRI"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded text-[10px] tracking-widest uppercase font-label">Advanced</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-headline font-bold text-primary">Kuchipudi</h3>
+<span class="text-secondary font-label font-bold">₹16,000</span>
+</div>
+<p class="text-tertiary/70 text-sm mb-6 font-serif italic leading-relaxed">A blend of dance and drama, featuring unique techniques like dancing on a brass plate.</p>
+<div class="space-y-3 mb-8">
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="schedule">schedule</span>
+                            12 Months Masterclass
+                        </div>
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="location_on">location_on</span>
+                            Bengaluru Studio
+                        </div>
+</div>
+<button class="w-full py-4 bg-surface-container-low border border-outline-variant/20 rounded-lg text-primary font-bold uppercase tracking-widest text-xs group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">View Batches</button>
+</div>
+</div>
+<!-- Card 6: Contemporary Folk -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/30 rounded-xl transition-colors duration-500 pointer-events-none z-10"></div>
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="Dancers in vibrant multi-colored traditional attire jumping in a high-energy folk dance sequence in an open outdoor court" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByReAPWuoWZ7hzO17OhwuLvO22fsvgZtuxwsd-x2t0JRHG7SILPpoeaViUX3T0a3ST-fYfoOpxtRY7B6bhDQPivX7AWC6BZTf0jMJOwMLJGyXCbIqlzzmdwA2Xr7BcMdweDKTUQ8KFneE7nN99-ijxIOkFkLuTt8mX-231r5JUgi28sHV6aTsyls6asttGgYXtKCJT5RhH1ZxHfcnNVrkuuyHGnFkfBnMazi7VvZxBSlAFodSVILvVReXUwZOEEncVRzJJJs36cV0"/>
+<div class="absolute top-4 left-4 bg-primary/90 text-on-primary px-3 py-1 rounded text-[10px] tracking-widest uppercase font-label">All Levels</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-headline font-bold text-primary">Contemporary Folk</h3>
+<span class="text-secondary font-label font-bold">₹9,500</span>
+</div>
+<p class="text-tertiary/70 text-sm mb-6 font-serif italic leading-relaxed">High-energy fusion of traditional Indian folk elements with modern athletic movement.</p>
+<div class="space-y-3 mb-8">
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="schedule">schedule</span>
+                            3 Months Workshop
+                        </div>
+<div class="flex items-center text-xs text-on-surface-variant tracking-wide font-label uppercase">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg" data-icon="location_on">location_on</span>
+                            All Locations
+                        </div>
+</div>
+<button class="w-full py-4 bg-surface-container-low border border-outline-variant/20 rounded-lg text-primary font-bold uppercase tracking-widest text-xs group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">View Batches</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 mt-auto bg-red-950 dark:bg-stone-950 border-t-4 border-amber-600/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl mx-auto text-center md:text-left">
+<div>
+<div class="text-lg font-serif text-amber-500 mb-4">Heritage Dance Academy</div>
+<p class="text-xs font-serif italic opacity-80 text-stone-300">Preserving the sacred traditions of Indian classical dance since 1982. Join our lineage of grace and excellence.</p>
+</div>
+<div class="flex flex-col space-y-2">
+<a class="text-stone-300 hover:text-amber-400 transition-all text-xs font-serif italic" href="#">About Us</a>
+<a class="text-stone-300 hover:text-amber-400 transition-all text-xs font-serif italic" href="#">Terms of Service</a>
+<a class="text-stone-300 hover:text-amber-400 transition-all text-xs font-serif italic" href="#">Privacy Policy</a>
+<a class="text-stone-300 hover:text-amber-400 transition-all text-xs font-serif italic" href="#">Contact</a>
+</div>
+<div>
+<div class="text-amber-500 text-xs font-label uppercase tracking-widest mb-4">Newsletter</div>
+<div class="flex">
+<input class="bg-red-900/20 border-amber-600/30 text-stone-200 text-xs p-2 flex-grow focus:ring-amber-500 border rounded-l-lg" placeholder="Email Address" type="email"/>
+<button class="bg-amber-600 text-white px-4 py-2 rounded-r-lg text-xs hover:bg-amber-500 transition-all">Join</button>
+</div>
+</div>
+</div>
+<div class="text-center mt-12 text-[10px] text-stone-500 font-label tracking-widest">
+            © 2024 Heritage Dance Academy. All rights reserved.
+        </div>
+</footer>
+</body></html>

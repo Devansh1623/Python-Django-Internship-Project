@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block page_title %}Programs{% endblock %}
+
+{% block content %}
+<!-- ── Page Header ─────────────────────────────────────── -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Coaching Specialties</div>
+  <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+    <div>
+      <h1 class="page-hero-title">Program Catalog</h1>
+      <p class="page-hero-sub">Expert coaching programs available across all specialties and levels.</p>
+    </div>
+    <a class="btn btn-primary" href="/courses/create/">
+      <span class="material-icons-round">library_add</span> New Program
+    </a>
+  </div>
+</div>
+
+<!-- ── Style Filter Chips ─────────────────────────────── -->
+<div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+  <span class="chip active-chip">All Programs</span>
+  <span class="chip">💼 Career &amp; Leadership</span>
+  <span class="chip">🧠 Mindset</span>
+  <span class="chip">🏋️ Health &amp; Fitness</span>
+  <span class="chip">📈 Business</span>
+  <span class="chip">🎨 Creative Skills</span>
+  <span class="chip">🌐 Tech &amp; Coding</span>
+  <span class="chip">🗣️ Communication</span>
+</div>
+
+<!-- ── Course Cards ────────────────────────────────────── -->
+{% with style_icons="bharatanatyam:🪷,kathak:💃,odissi:🌊,mohiniyattam:✨,contemporary:🔥,folk_dance:🥁,bollywood:🎬,kuchipudi:🎭,manipuri:🌺,hip_hop:🎵" %}
+<div class="grid grid-3">
+  {% for course in courses %}
+  <div class="card card-featured" style="transition:all 0.25s ease;">
+    <div class="card-body" style="padding:1.5rem;">
+
+      <!-- Style Icon + Badge -->
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+        <div style="font-size:2.5rem; line-height:1;">
+          {% if course.dance_style == "bharatanatyam" %}💼
+          {% elif course.dance_style == "kathak" %}🧠
+          {% elif course.dance_style == "odissi" %}🏋️
+          {% elif course.dance_style == "mohiniyattam" %}📈
+          {% elif course.dance_style == "contemporary" %}🎨
+          {% elif course.dance_style == "folk_dance" %}🌐
+          {% elif course.dance_style == "bollywood" %}🗣️
+          {% elif course.dance_style == "kuchipudi" %}🎯
+          {% elif course.dance_style == "hip_hop" %}🚀
+          {% else %}⭐{% endif %}
+        </div>
+        <div style="display:flex; gap:0.375rem; flex-wrap:wrap; justify-content:flex-end;">
+          <span class="badge badge-active" style="font-size:0.65rem;">{{ course.get_level_display }}</span>
+          {% if course.is_active %}
+          <span class="badge badge-active" style="font-size:0.65rem;">Active</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Title + Style -->
+      <div style="font-family:var(--font-display); font-size:1.0625rem; font-weight:700; margin-bottom:4px;">{{ course.name }}</div>
+      <div style="font-size:0.8125rem; color:var(--secondary); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-family:var(--font-label); margin-bottom:0.875rem; border-bottom:2px solid var(--secondary-fixed); padding-bottom:0.5rem; display:inline-block;">
+        {{ course.get_dance_style_display }}
+      </div>
+
+      <!-- Description -->
+      {% if course.description %}
+      <p style="font-size:0.875rem; color:var(--on-surface-variant); line-height:1.6; margin-bottom:1rem;">{{ course.description|truncatechars:100 }}</p>
+      {% endif %}
+
+      <!-- Meta Grid -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.25rem; padding:0.875rem; background:var(--surface-container-low); border-radius:0.625rem;">
+        <div>
+          <div style="font-size:0.625rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--on-surface-variant); font-family:var(--font-label); margin-bottom:2px;">Duration</div>
+          <div style="font-weight:700; font-size:0.9375rem; color:var(--on-surface);">{{ course.duration_months }} <span style="font-size:0.75rem; font-weight:400; color:var(--on-surface-variant);">months</span></div>
+        </div>
+        <div>
+          <div style="font-size:0.625rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--on-surface-variant); font-family:var(--font-label); margin-bottom:2px;">Monthly Fee</div>
+          <div style="font-weight:700; font-size:0.9375rem; color:var(--primary);">₹{{ course.fee }}</div>
+        </div>
+        <div>
+          <div style="font-size:0.625rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--on-surface-variant); font-family:var(--font-label); margin-bottom:2px;">Sessions</div>
+          <div style="font-weight:700; font-size:0.9375rem;">{{ course.batches.count }}</div>
+        </div>
+        <div>
+          <div style="font-size:0.625rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--on-surface-variant); font-family:var(--font-label); margin-bottom:2px;">Level</div>
+          <div style="font-weight:700; font-size:0.875rem;">{{ course.get_level_display }}</div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="btn-group">
+        <a href="/batches/?course={{ course.id }}" class="btn btn-ghost btn-sm" style="flex:1; justify-content:center;">
+          <span class="material-icons-round">event_available</span> View Sessions
+        </a>
+        <a href="/courses/edit/{{ course.id }}/" class="btn btn-secondary btn-sm">
+          <span class="material-icons-round">edit</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {% empty %}
+  <div class="card" style="grid-column:1/-1;">
+    <div class="empty-state">
+      <div class="empty-icon"><span class="material-icons-round" style="font-size:3.5rem; opacity:0.35;">menu_book</span></div>
+      <h3>No Programs Yet</h3>
+      <p>Add your first coaching program to start building the CoachBook platform.</p>
+      <a href="/courses/create/" class="btn btn-primary" style="margin-top:1.25rem;">
+        <span class="material-icons-round">add</span> Create First Program
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endwith %}
+{% endblock %}

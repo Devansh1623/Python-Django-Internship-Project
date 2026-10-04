@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block page_title %}Coaches{% endblock %}
+
+{% block content %}
+<!-- ── Page Header ─────────────────────────────────────── -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Expert Network</div>
+  <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+    <div>
+      <h1 class="page-hero-title">Coach Roster</h1>
+      <p class="page-hero-sub">All active CoachBook coaches — verified experts ready to help you grow.</p>
+    </div>
+    <a class="btn btn-primary" href="/branches/create/">
+      <span class="material-icons-round">person_add</span> Add Coach
+    </a>
+  </div>
+</div>
+
+<!-- ── Stats Row ───────────────────────────────────────── -->
+<div class="grid grid-3" style="margin-bottom:1.75rem; gap:1rem;">
+  <div class="stat-card" style="padding:1rem;">
+    <div class="stat-icon primary"><span class="material-icons-round">people</span></div>
+    <div class="stat-content">
+      <div class="stat-label">Total Coaches</div>
+      <div class="stat-value" style="font-size:1.75rem;">{{ branches|length }}</div>
+    </div>
+  </div>
+  <div class="stat-card" style="padding:1rem;">
+    <div class="stat-icon secondary"><span class="material-icons-round">location_city</span></div>
+    <div class="stat-content">
+      <div class="stat-label">Cities Covered</div>
+      <div class="stat-value" style="font-size:1.75rem;">
+        {{ branches|length }}+
+      </div>
+    </div>
+  </div>
+  <div class="stat-card" style="padding:1rem;">
+    <div class="stat-icon success"><span class="material-icons-round">check_circle</span></div>
+    <div class="stat-content">
+      <div class="stat-label">Active Coaches</div>
+      <div class="stat-value" style="font-size:1.75rem;">{{ branches|length }}</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Branch Cards Grid ───────────────────────────────── -->
+<div class="grid grid-2">
+  {% for branch in branches %}
+  <div class="card card-featured" style="transition:all 0.25s ease; cursor:default;">
+    <div class="card-body" style="padding:1.5rem;">
+      <div style="display:flex; align-items:flex-start; gap:1rem; margin-bottom:1rem;">
+        <!-- Icon -->
+        <div style="width:52px; height:52px; border-radius:0.75rem; background:linear-gradient(135deg,var(--primary),var(--secondary)); display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 3px 10px rgba(13,124,102,0.3);">
+          <span class="material-icons-round" style="color:white; font-size:26px;">person</span>
+        </div>
+        <div style="flex:1; min-width:0;">
+          <div style="font-family:var(--font-display); font-size:1.125rem; font-weight:700; margin-bottom:2px;">{{ branch.name }}</div>
+          <div style="display:flex; align-items:center; gap:0.25rem; font-size:0.8125rem; color:var(--on-surface-variant);">
+            <span class="material-icons-round" style="font-size:14px; color:var(--secondary);">location_on</span>
+            {{ branch.city }}
+          </div>
+        </div>
+        <span class="badge {% if branch.is_active %}badge-active{% else %}badge-rejected{% endif %}">
+          {% if branch.is_active %}Active{% else %}Closed{% endif %}
+        </span>
+      </div>
+
+      <!-- Address -->
+      <div style="background:var(--surface-container-low); border-radius:0.5rem; padding:0.75rem; margin-bottom:1rem; font-size:0.875rem; color:var(--on-surface-variant);">
+        <span class="material-icons-round" style="font-size:14px; vertical-align:middle; margin-right:4px; color:var(--primary);">home</span>
+        {{ branch.address }}
+      </div>
+
+      <!-- Meta Grid -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1rem;">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="font-size:16px; color:var(--secondary);">phone</span>
+          <div>
+            <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--on-surface-variant); font-family:var(--font-label);">Phone</div>
+            <div style="font-size:0.8125rem; font-weight:600;">{{ branch.phone }}</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="font-size:16px; color:var(--secondary);">email</span>
+          <div>
+            <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--on-surface-variant); font-family:var(--font-label);">Email</div>
+            <div style="font-size:0.75rem; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ branch.email|default:"—" }}</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="font-size:16px; color:var(--secondary);">calendar_month</span>
+          <div>
+            <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--on-surface-variant); font-family:var(--font-label);">Sessions</div>
+            <div style="font-size:0.8125rem; font-weight:700; color:var(--primary);">{{ branch.batches.count }}</div>
+          </div>
+        </div>
+        {% if branch.manager %}
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="material-icons-round" style="font-size:16px; color:var(--secondary);">manage_accounts</span>
+          <div>
+            <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--on-surface-variant); font-family:var(--font-label);">Specialty</div>
+            <div style="font-size:0.8125rem; font-weight:600;">{{ branch.manager.get_full_name|default:branch.manager.username }}</div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Batch Chips -->
+      {% if branch.batches.all %}
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+        {% for batch in branch.batches.all|slice:":4" %}
+        <span class="chip" style="font-size:0.7rem; padding:0.2rem 0.6rem;">{{ batch.course.get_dance_style_display }}</span>
+        {% endfor %}
+        {% if branch.batches.count > 4 %}
+        <span style="font-size:0.75rem; color:var(--on-surface-variant); align-self:center;">+{{ branch.batches.count|add:"-4" }} more</span>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <!-- Actions -->
+      <div class="btn-group">
+        <a href="/batches/?branch={{ branch.id }}" class="btn btn-ghost btn-sm">
+          <span class="material-icons-round">event_available</span> View Sessions
+        </a>
+        <a href="/branches/edit/{{ branch.id }}/" class="btn btn-secondary btn-sm">
+          <span class="material-icons-round">edit</span> Edit
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {% empty %}
+  <div class="card" style="grid-column:1/-1;">
+    <div class="empty-state">
+      <div class="empty-icon"><span class="material-icons-round" style="font-size:3.5rem; opacity:0.35;">people</span></div>
+      <h3>No Coaches Yet</h3>
+      <p>Start growing CoachBook by adding your first certified coach.</p>
+      <a href="/branches/create/" class="btn btn-primary" style="margin-top:1.25rem;">
+        <span class="material-icons-round">add</span> Add First Coach
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

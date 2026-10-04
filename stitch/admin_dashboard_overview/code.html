@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Natya Admin - Heritage Dance Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#8e706c",
+                        "tertiary": "#352312",
+                        "surface-container-highest": "#e5e2db",
+                        "secondary-container": "#fed65b",
+                        "surface": "#fcf9f2",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1c1c18",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffe088",
+                        "on-tertiary-container": "#bea28a",
+                        "on-background": "#1c1c18",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed-variant": "#8f0f07",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary-fixed": "#ffdad4",
+                        "inverse-on-surface": "#f3f0ea",
+                        "surface-container-low": "#f6f3ec",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "inverse-surface": "#31312c",
+                        "on-primary-fixed": "#410000",
+                        "primary": "#570000",
+                        "on-secondary-container": "#745c00",
+                        "on-primary-container": "#ff8371",
+                        "secondary": "#735c00",
+                        "surface-dim": "#dcdad3",
+                        "surface-variant": "#e5e2db",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#4c3926",
+                        "background": "#fcf9f2",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#5a413d",
+                        "outline-variant": "#e2bfb9",
+                        "on-tertiary-fixed-variant": "#57432f",
+                        "on-tertiary-fixed": "#281808",
+                        "surface-container": "#f0eee7",
+                        "tertiary-fixed-dim": "#dfc1a8",
+                        "surface-container-high": "#ebe8e1",
+                        "surface-tint": "#b22b1d",
+                        "primary-container": "#800000",
+                        "surface-bright": "#fcf9f2",
+                        "tertiary-fixed": "#fcddc2",
+                        "inverse-primary": "#ffb4a8"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grainy-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        .mandala-watermark {
+            mask-image: url("https://www.transparenttextures.com/patterns/pinstriped-suit.png");
+            opacity: 0.04;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<div class="grainy-bg fixed inset-0 z-[-1]"></div>
+<!-- SideNavBar -->
+<nav class="h-screen w-64 fixed left-0 top-0 bg-red-950 dark:bg-black flex flex-col h-full overflow-y-auto shadow-2xl z-40">
+<div class="p-8">
+<div class="flex items-center space-x-3 mb-10">
+<div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-red-950" style="font-variation-settings: 'FILL' 1;">temple_hindu</span>
+</div>
+<div>
+<h1 class="text-xl font-serif text-amber-500 leading-none">Natya Admin</h1>
+<p class="text-[10px] font-label tracking-[0.2em] uppercase text-amber-500/60 mt-1">Central Management</p>
+</div>
+</div>
+<div class="space-y-1">
+<a class="flex items-center space-x-4 bg-red-900/50 text-amber-500 border-l-4 border-amber-500 px-6 py-4 translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-serif text-sm tracking-widest uppercase">Dashboard</span>
+</a>
+<a class="flex items-center space-x-4 text-stone-400 px-6 py-4 hover:bg-red-900/30 hover:text-amber-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-serif text-sm tracking-widest uppercase">Branches</span>
+</a>
+<a class="flex items-center space-x-4 text-stone-400 px-6 py-4 hover:bg-red-900/30 hover:text-amber-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-serif text-sm tracking-widest uppercase">Faculty</span>
+</a>
+<a class="flex items-center space-x-4 text-stone-400 px-6 py-4 hover:bg-red-900/30 hover:text-amber-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-serif text-sm tracking-widest uppercase">Batches</span>
+</a>
+<a class="flex items-center space-x-4 text-stone-400 px-6 py-4 hover:bg-red-900/30 hover:text-amber-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-serif text-sm tracking-widest uppercase">Students</span>
+</a>
+<a class="flex items-center space-x-4 text-stone-400 px-6 py-4 hover:bg-red-900/30 hover:text-amber-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-serif text-sm tracking-widest uppercase">Settings</span>
+</a>
+</div>
+</div>
+<div class="mt-auto p-8 border-t border-amber-900/20">
+<div class="flex items-center space-x-3">
+<img alt="Dance Academy Logo" class="w-10 h-10 rounded-full border-2 border-amber-500/30" data-alt="portrait of a senior indian man with glasses and professional attire in a warm office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvoFWJPOCxl4ydyjx7v4hKPHpk3iHNahNeuQQrxpHXz2lpRme-wowNaoirdCJAJvi3EsxSGJT_8WONy3P-x_2YR5l0UTgRzZRRxEkw2H34XXVlcCB74UZVjHaL974ZfddWkdR-2JXSm_Sg6l1Fc8zBjxtrVayg_ulO0gLnQ7HZjHcXnWn4KNUAJHtfHAuK3pqBHtfIm37GTHHEqFUtMeJI4GEaNpZpyBwtg0NINmniTdH-q5Da1eQp9KfXn8BC5VomryEfsH_mk9c"/>
+<div class="overflow-hidden">
+<p class="text-stone-200 text-sm font-medium truncate">Dr. Arjan Dev</p>
+<p class="text-stone-500 text-xs truncate">Head Administrator</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Shell -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="h-20 px-8 flex justify-between items-center bg-surface/80 backdrop-blur-md sticky top-0 z-30">
+<div class="flex items-center space-x-6">
+<div class="relative">
+<select class="appearance-none bg-surface-container-low border-none rounded-lg py-2 pl-4 pr-10 text-sm font-medium focus:ring-2 focus:ring-secondary transition-all cursor-pointer">
+<option>South Mumbai Central</option>
+<option>Bengaluru East</option>
+<option>Delhi NCR Main</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none">expand_more</span>
+</div>
+<div class="h-6 w-px bg-outline-variant/30"></div>
+<h2 class="font-headline text-2xl text-primary leading-tight">Academic Overview</h2>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="flex items-center space-x-3 px-4 py-2 bg-primary text-on-primary rounded-lg font-medium shadow-lg shadow-primary/10 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="text-sm">Quick Action</span>
+</button>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-8 space-y-8 max-w-7xl mx-auto w-full">
+<!-- Quick Actions & Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Stats Cards -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group">
+<div class="mandala-watermark absolute -right-4 -bottom-4 w-24 h-24 bg-secondary-container rounded-full"></div>
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-1">Total Students</p>
+<h3 class="font-headline text-4xl text-primary">1,284</h3>
+<div class="mt-4 flex items-center text-xs text-secondary font-medium">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span>
+<span>+12% vs last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden">
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-1">Active Branches</p>
+<h3 class="font-headline text-4xl text-primary">08</h3>
+<div class="mt-4 flex items-center text-xs text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-sm mr-1">location_on</span>
+<span>Across 4 cities</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden">
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-1">Total Faculty</p>
+<h3 class="font-headline text-4xl text-primary">42</h3>
+<div class="mt-4 flex items-center text-xs text-secondary font-medium">
+<span class="material-symbols-outlined text-sm mr-1">verified</span>
+<span>3 Masters joined</span>
+</div>
+</div>
+<div class="bg-primary-container p-6 rounded-xl relative overflow-hidden shadow-xl shadow-primary/10">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-90"></div>
+<div class="relative z-10">
+<p class="text-[10px] font-label uppercase tracking-widest text-on-primary-container mb-1">Annual Revenue</p>
+<h3 class="font-headline text-4xl text-on-primary">₹4.2M</h3>
+<div class="mt-4 flex items-center text-xs text-secondary-fixed-dim font-medium">
+<span class="material-symbols-outlined text-sm mr-1">payments</span>
+<span>Target: ₹5.0M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Analytics Area -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Charts Section -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-xl p-8 border-t-4 border-secondary/30">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h4 class="font-headline text-xl text-primary">Enrollment Trends</h4>
+<p class="text-sm text-on-surface-variant italic">Student intake over the last 6 months</p>
+</div>
+<div class="flex space-x-2">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-[10px] font-bold uppercase tracking-tighter">Kathak</span>
+<span class="px-3 py-1 bg-primary text-on-primary rounded-full text-[10px] font-bold uppercase tracking-tighter">Bharatnatyam</span>
+</div>
+</div>
+<!-- Visual Mockup for Chart -->
+<div class="h-64 flex items-end justify-between space-x-2 relative">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="border-b border-outline-variant/20 w-full h-px"></div>
+<div class="border-b border-outline-variant/20 w-full h-px"></div>
+<div class="border-b border-outline-variant/20 w-full h-px"></div>
+<div class="border-b border-outline-variant/20 w-full h-px"></div>
+</div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t-md relative group h-[40%]">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">120</div>
+</div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t-md relative group h-[55%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t-md relative group h-[75%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t-md relative group h-[65%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t-md relative group h-[85%]"></div>
+<div class="flex-1 bg-secondary hover:opacity-90 transition-all rounded-t-md relative group h-[95%]">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-secondary text-on-secondary text-[10px] px-2 py-1 rounded">284</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-label uppercase tracking-widest text-on-surface-variant px-2">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+</div>
+</div>
+<!-- Quick Actions & Activity -->
+<div class="space-y-6">
+<div class="bg-tertiary-container p-8 rounded-xl text-on-tertiary relative overflow-hidden group cursor-pointer">
+<div class="relative z-10 flex justify-between items-center">
+<div>
+<h4 class="font-headline text-lg text-tertiary-fixed">Add New Branch</h4>
+<p class="text-xs text-tertiary-fixed-dim/70 mt-1">Expand the heritage to new horizons</p>
+</div>
+<span class="material-symbols-outlined text-3xl group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-t-4 border-secondary/10">
+<h4 class="font-headline text-lg text-primary mb-6">Recent Activity</h4>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">person_add</span>
+</div>
+<div>
+<p class="text-sm font-medium">New Student Admission</p>
+<p class="text-xs text-on-surface-variant">Ananya Iyer joined Kathak Beginners - Batch A</p>
+<p class="text-[10px] text-outline mt-1 italic">2 minutes ago</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1;">add_business</span>
+</div>
+<div>
+<p class="text-sm font-medium">New Batch Created</p>
+<p class="text-xs text-on-surface-variant">Semi-Classical Workshop - Bengaluru East</p>
+<p class="text-[10px] text-outline mt-1 italic">1 hour ago</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm text-primary">verified_user</span>
+</div>
+<div>
+<p class="text-sm font-medium">Faculty Verification</p>
+<p class="text-xs text-on-surface-variant">Guru Prakash Rao completed profile</p>
+<p class="text-[10px] text-outline mt-1 italic">3 hours ago</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 text-xs font-bold uppercase tracking-widest text-primary hover:bg-surface-container-low transition-colors rounded-lg border border-primary/10">
+                            View All Activity
+                        </button>
+</div>
+</div>
+</div>
+<!-- Secondary Detail Section: Asymmetric Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden">
+<div class="h-48 relative overflow-hidden">
+<img alt="Dance Culture" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="dramatic close-up of classical indian dance bells (ghungroo) on a dark wooden floor with warm spot lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAELoe1Lfl2PBOy1yzu3UEuRvRK4oBR6enYfSq4zIHXw17ZYaTiWns54Wfae2syjIv4UGsLPpwu7rYBlwlG67jXmwPtH0QC_lAQq6_HIItXOq5DK-6c1cdXDz_scptoCgqwPLKy1g5a4_2XkW5xIwpxk5MCIPqWcpHYX5mgb7_INRD2c_1WdkbqBMhV7IyBqCFvdARCKkoa-p0mgYHwPAk9GNmw16hmlS2Q4zLMzv4S3RYtCzCXfk8BdmQ3y7XjdRjgsnU8ss3wA9Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+<h5 class="font-headline text-white text-xl">Faculty Spotlights</h5>
+</div>
+</div>
+<div class="p-6">
+<p class="text-sm text-on-surface-variant italic leading-relaxed mb-6">
+                            "Preserving the soul of tradition requires modern precision in management."
+                        </p>
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="portrait of a female dancer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA011qGfOxSnn8wOgbAW2cZM61lAioY-FmDKdeJAQDIJeDg3uRv9WO_I5Rux_PVklN_fswAK02scCNX2Dt0IH0OQpiyP7UiPjUl2R_YxLSOIdXmJflGA77vlT3FW-M0z70NDnd9WyseEMfPUqLXcsDMesysOW6C73l1BWni5ZrqNR7maw_MgpyQ4yMzhTpMIwLysS4F8IpBctfY9Laa3oDguTNZYeCvFo7Fs-LC8CICA_9eKqxmKXkLFWNDVt8V4KnSwj-hgDAwBWg"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="portrait of a male classical artist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWsrY0iH8qCCuJL3EBqJigbzDrNJI_9FGysrXhEk3ngDC6WvpE-TuBIoW4dzGYFoiUZ-hVjhQgzPossuTdz3VqT98VyvRvHhWuNc8RnsrHr5m10LB9s9-PsMLDwKVh4ADWXGXg_OZi-ZKDJsMzmFV3Rj3noY_XrckC6nKTsJrfA_OooCpuSbphonrVHN9nGKQtzBlTutPo5iYN76N1gpwjek3kJM3EywXzo8LoJqEkbdbBwicvXKqtSiIFQN98W9hZPWOXkt49_uM"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="portrait of a smiling woman in traditional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFuBerVZoDY85cz_5EBJEylBKImS1pwR7jvK_avcw7NIGm7RPbEQFMULjRqgtXlAd9x7tOeccb1b-C_0z6SKDvByWaPDGFAtFWligQb6PFyxOFh9YD6CKqXY1V1mrzHfyl1EnoteDJF7gDfDAp8-2CTblY5aqBfe4Iro43RZTtCGsNAUmVC66fVWxD-p_XDytOQZbNdi1JIPoDwTQloQwLugZGVt_mwXUzpu7kxLvCG3uHJcrFFlkHqXCotx2zpp8d-NnWrWITIYA"/>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold border-2 border-surface">+38</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 bg-surface-container-low rounded-xl p-8 relative overflow-hidden">
+<div class="mandala-watermark absolute top-0 left-0 w-full h-full"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<h4 class="font-headline text-2xl text-primary">Active Batches by Branch</h4>
+<button class="text-secondary text-sm font-medium flex items-center">
+                                Detailed Report <span class="material-symbols-outlined ml-1">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-primary">
+<div class="flex justify-between mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">South Mumbai</span>
+<span class="text-xs font-bold text-secondary">85% Full</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+<div class="mt-3 flex justify-between items-center">
+<p class="text-xs text-outline italic">12 Classes Today</p>
+<p class="text-sm font-semibold text-primary">124 Students</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-secondary">
+<div class="flex justify-between mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Bengaluru East</span>
+<span class="text-xs font-bold text-secondary">62% Full</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[62%]"></div>
+</div>
+<div class="mt-3 flex justify-between items-center">
+<p class="text-xs text-outline italic">8 Classes Today</p>
+<p class="text-sm font-semibold text-primary">98 Students</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-primary">
+<div class="flex justify-between mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Delhi NCR</span>
+<span class="text-xs font-bold text-secondary">92% Full</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[92%]"></div>
+</div>
+<div class="mt-3 flex justify-between items-center">
+<p class="text-xs text-outline italic">15 Classes Today</p>
+<p class="text-sm font-semibold text-primary">210 Students</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-secondary/30">
+<div class="flex justify-between mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Pune West</span>
+<span class="text-xs font-bold text-secondary">45% Full</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[45%]"></div>
+</div>
+<div class="mt-3 flex justify-between items-center">
+<p class="text-xs text-outline italic">4 Classes Today</p>
+<p class="text-sm font-semibold text-primary">54 Students</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 mt-auto bg-red-950 dark:bg-stone-950 border-t-4 border-amber-600/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl mx-auto text-center md:text-left">
+<div class="space-y-4">
+<h5 class="text-lg font-serif text-amber-500">Heritage Dance Academy</h5>
+<p class="text-xs font-serif italic text-stone-300/80">
+                        Bridging generations through the divine art of classical Indian dance. Established in 1984.
+                    </p>
+</div>
+<div class="flex flex-col space-y-2">
+<p class="text-[10px] font-label uppercase tracking-[0.3em] text-amber-500/50 mb-2">Navigation</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2">
+<a class="text-xs font-serif italic text-stone-300 hover:text-amber-400 transition-all" href="#">About Us</a>
+<a class="text-xs font-serif italic text-stone-300 hover:text-amber-400 transition-all" href="#">Terms of Service</a>
+<a class="text-xs font-serif italic text-stone-300 hover:text-amber-400 transition-all" href="#">Privacy Policy</a>
+<a class="text-xs font-serif italic text-stone-300 hover:text-amber-400 transition-all" href="#">Contact</a>
+</div>
+</div>
+<div class="flex flex-col items-center md:items-end justify-center">
+<p class="text-[10px] font-label uppercase tracking-widest text-stone-400">© 2024 Heritage Dance Academy. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-secondary text-on-secondary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-transform z-50">
+<span class="material-symbols-outlined text-2xl">add_card</span>
+</button>
+</body></html>

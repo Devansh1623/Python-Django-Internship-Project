@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-hero"><h1 class="page-hero-title">Bookings</h1><p class="page-hero-sub">All coaching session bookings and approval flow.</p></div>
+<div class="btn-group" style="margin-bottom:1rem;"><a class="btn btn-primary" href="/admissions/apply/"><span class="material-icons-round">bookmark_add</span> Book Session</a></div>
+<div class="card"><div class="card-body">{% if admissions %}<table><thead><tr><th>Client</th><th>Session</th><th>Status</th><th>Payment</th></tr></thead><tbody>{% for a in admissions %}<tr><td>{{ a.student.get_full_name|default:a.student.username }}</td><td>{{ a.batch.name }}</td><td>{{ a.get_status_display }}</td><td>{{ a.get_payment_status_display }}</td></tr>{% endfor %}</tbody></table>{% else %}No bookings yet.{% endif %}</div></div>
+{% endblock %}

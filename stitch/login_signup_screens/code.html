@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heritage Dance Academy - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "outline": "#8e706c",
+                "tertiary": "#352312",
+                "surface-container-highest": "#e5e2db",
+                "secondary-container": "#fed65b",
+                "surface": "#fcf9f2",
+                "on-error": "#ffffff",
+                "on-surface": "#1c1c18",
+                "on-error-container": "#93000a",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed": "#ffe088",
+                "on-tertiary-container": "#bea28a",
+                "on-background": "#1c1c18",
+                "on-secondary-fixed": "#241a00",
+                "on-primary-fixed-variant": "#8f0f07",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed-variant": "#574500",
+                "primary-fixed": "#ffdad4",
+                "inverse-on-surface": "#f3f0ea",
+                "surface-container-low": "#f6f3ec",
+                "secondary-fixed-dim": "#e9c349",
+                "on-primary": "#ffffff",
+                "primary-fixed-dim": "#ffb4a8",
+                "inverse-surface": "#31312c",
+                "on-primary-fixed": "#410000",
+                "primary": "#570000",
+                "on-secondary-container": "#745c00",
+                "on-primary-container": "#ff8371",
+                "secondary": "#735c00",
+                "surface-dim": "#dcdad3",
+                "surface-variant": "#e5e2db",
+                "error": "#ba1a1a",
+                "error-container": "#ffdad6",
+                "tertiary-container": "#4c3926",
+                "background": "#fcf9f2",
+                "on-secondary": "#ffffff",
+                "on-surface-variant": "#5a413d",
+                "outline-variant": "#e2bfb9",
+                "on-tertiary-fixed-variant": "#57432f",
+                "on-tertiary-fixed": "#281808",
+                "surface-container": "#f0eee7",
+                "tertiary-fixed-dim": "#dfc1a8",
+                "surface-container-high": "#ebe8e1",
+                "surface-tint": "#b22b1d",
+                "primary-container": "#800000",
+                "surface-bright": "#fcf9f2",
+                "tertiary-fixed": "#fcddc2",
+                "inverse-primary": "#ffb4a8"
+              },
+              fontFamily: {
+                "headline": ["Noto Serif"],
+                "body": ["Manrope"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .mandala-bg {
+            background-color: #fcf9f2;
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23735c00' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM10 0C8.895 0 8 .895 8 2s.895 2 2 2 2-.895 2-2-.895-2-2-2zm80 0c-1.105 0-2 .895-2 2s.895 2 2 2 2-.895 2-2-.895-2-2-2zM9 40c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm60 25c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' /%3E%3C/g%3E%3C/svg%3E");
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="mandala-bg font-body text-on-surface min-h-screen flex items-center justify-center p-6 relative overflow-x-hidden">
+<div class="grain-overlay"></div>
+<main class="w-full max-w-md relative z-10">
+<!-- Logo Area -->
+<div class="flex flex-col items-center mb-10">
+<div class="relative mb-4">
+<span class="material-symbols-outlined text-5xl text-primary" style="font-variation-settings: 'FILL' 1;">
+                    temple_hindu
+                </span>
+<div class="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
+</div>
+<h1 class="font-headline text-3xl font-bold tracking-tight text-primary">Heritage Dance Academy</h1>
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-secondary mt-1 font-semibold">Preserving Grace Through Generations</p>
+</div>
+<!-- Auth Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_32px_64px_-12px_rgba(28,28,24,0.06)] border border-secondary/20 p-8 md:p-10 relative overflow-hidden">
+<!-- Asymmetric Temple Accent -->
+<div class="absolute top-0 right-0 w-24 h-1 bg-gradient-to-l from-secondary to-transparent"></div>
+<!-- Login State -->
+<div id="login-form">
+<div class="mb-8">
+<h2 class="font-headline text-2xl text-tertiary mb-2">Welcome Back</h2>
+<p class="text-sm text-on-surface-variant font-body">Enter your credentials to access your studio dashboard.</p>
+</div>
+<form class="space-y-6">
+<div>
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-2 ml-1" for="email">Email Address</label>
+<input class="w-full px-4 py-3.5 bg-surface-container-high border-none rounded-lg text-sm transition-all duration-300 focus:ring-1 focus:ring-secondary/30 focus:bg-surface-container-lowest placeholder-on-surface-variant/40" id="email" name="email" placeholder="e.g. aditi.sharma@email.com" type="email"/>
+</div>
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant ml-1" for="password">Password</label>
+<a class="text-[10px] font-label font-bold uppercase tracking-wider text-secondary hover:text-primary transition-colors" href="#">Forgot?</a>
+</div>
+<div class="relative">
+<input class="w-full px-4 py-3.5 bg-surface-container-high border-none rounded-lg text-sm transition-all duration-300 focus:ring-1 focus:ring-secondary/30 focus:bg-surface-container-lowest placeholder-on-surface-variant/40" id="password" name="password" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 cursor-pointer text-xl">visibility</span>
+</div>
+</div>
+<div class="flex items-center space-x-3 py-1">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="text-xs text-on-surface-variant" for="remember">Remember me for 30 days</label>
+</div>
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-surface-bright font-label font-semibold text-sm py-4 rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.01] active:scale-95 transition-all duration-300 flex justify-center items-center space-x-2" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</form>
+<div class="mt-8 flex flex-col space-y-4">
+<div class="relative flex py-2 items-center">
+<div class="flex-grow border-t border-surface-container-highest"></div>
+<span class="flex-shrink mx-4 text-[10px] font-label font-bold text-on-surface-variant/40 uppercase tracking-widest">Or continue with</span>
+<div class="flex-grow border-t border-surface-container-highest"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center space-x-2 py-3 border border-outline-variant/30 rounded-lg hover:bg-surface-container-low transition-colors">
+<img alt="Google" class="w-4 h-4" data-alt="Official Google G logo in a clean vector style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSksI3vO8_ZQkUyD-2xNAtRD-TgUgDbDUkbfjK6fxlnzJdPOOXACMMQr2IiuxEFytndq-aOuav6DQDiAIg_3Er1FXaIbeX7JbikokDgZYcerJ6aYeG1J1XBiVQfKqANsgVdp2-ot2sUEfbhx6vE7UXiuoboaax7KN7zmZkgnMvuBI5SqtvYQ_DCyvb80gp6W_-ZayCU8-DoYdC2iyxmlsmSlDescPNv3mvz6ilu7SeNj0S93x3EpI5TNfrsLczvvgsaerdP8D8yLg"/>
+<span class="text-xs font-semibold text-on-surface-variant">Google</span>
+</button>
+<button class="flex items-center justify-center space-x-2 py-3 border border-outline-variant/30 rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-xl text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span class="text-xs font-semibold text-on-surface-variant">Apple</span>
+</button>
+</div>
+</div>
+<div class="mt-10 pt-6 border-t border-surface-container-highest text-center">
+<p class="text-xs text-on-surface-variant">
+                        Don't have an account? 
+                        <button class="text-secondary font-bold hover:text-primary transition-colors ml-1">Create Account</button>
+</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-12 text-center space-y-4">
+<div class="flex justify-center space-x-6">
+<a class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant/60 hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant/60 hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant/60 hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant/60 hover:text-secondary transition-colors" href="#">Contact</a>
+</div>
+<p class="font-headline italic text-[11px] text-on-surface-variant/50">© 2024 Heritage Dance Academy. All rights reserved.</p>
+</footer>
+</main>
+<!-- Decorative Elements (Asymmetric) -->
+<div class="fixed -bottom-24 -left-24 w-96 h-96 opacity-10 pointer-events-none">
+<img alt="Indian classical dancer" class="w-full h-full object-cover rounded-full mix-blend-multiply" data-alt="Monochrome silhouette of a Bharatnatyam dancer in a graceful mudra, with soft shadows and elegant curves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAPw0DzGxMFJqS3WmTS20MvuLj7wjfz4Sgh6kB8F58QocJQLamKRBXIEp0U_W8fHtD1R3Ge2kA2iuCNerfjQNmP6Mlrk4G0rg3ewHqjYqvxdWL3-61sl3HSLMVe2ra1K4498lA5hW65IMEcLPzPzqDg2E1DnZWNnsNdq_6syeTsCcz_AU8H5bkgYV1mJovnBrlwYe18lgK1AYNqGa6FJFogCmxsjKWQDKzjXu11zGuYvlCvZ-CqdbZD7zhXs6ja_0TlfFOUaTsNxU"/>
+</div>
+<!-- Hidden Screen for Sign-up (Illustration of UI flow for the developer's eyes) -->
+<!-- In a real app this would be a separate route or state-managed div -->
+<div class="hidden" id="signup-form">
+<!-- Structural similar form but with additional fields: Full Name, Role Selection -->
+</div>
+</body></html>
